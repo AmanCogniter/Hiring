@@ -9,51 +9,19 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">680,624</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">10</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">921,226</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">testCases.PolicyTest</td><td><a href="#m0">validateStatusFunctionality</a></td><td rowspan="1">1723138016678</td><td rowspan="1">92055</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="7">testCases.PolicyTest</td><td><a href="#m1">addPolicy</a></td><td rowspan="1">1723137807738</td><td rowspan="1">70801</td></tr><tr class="passedeven"><td><a href="#m2">validateDeleteFunctionality</a></td><td rowspan="1">1723138253661</td><td rowspan="1">78313</td></tr><tr class="passedeven"><td><a href="#m3">validateEditFunctionality</a></td><td rowspan="1">1723137937284</td><td rowspan="1">79387</td></tr><tr class="passedeven"><td><a href="#m4">validateNoticePeriodPage</a></td><td rowspan="1">1723138178160</td><td rowspan="1">75491</td></tr><tr class="passedeven"><td><a href="#m5">validatePolicyNameOnListingPAge</a></td><td rowspan="1">1723137878549</td><td rowspan="1">58729</td></tr><tr class="passedeven"><td><a href="#m6">validateProbationPeriodPage</a></td><td rowspan="1">1723138109315</td><td rowspan="1">68833</td></tr><tr class="passedeven"><td><a href="#m7">validationCheck</a></td><td rowspan="1">1723137664105</td><td rowspan="1">143621</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="10">testCases.TalentPoolListTest</td><td><a href="#m0">ValidateAddAsCandidateFunctionalityOfTalentPool</a></td><td rowspan="1">1723671996069</td><td rowspan="1">137081</td></tr><tr class="passedeven"><td><a href="#m1">ValidateEditFunctionalityOfTalentPool</a></td><td rowspan="1">1723671790744</td><td rowspan="1">101568</td></tr><tr class="passedeven"><td><a href="#m2">ValidateTalentPoolOnListingPAge</a></td><td rowspan="1">1723671658785</td><td rowspan="1">65540</td></tr><tr class="passedeven"><td><a href="#m3">ValidateTalentPoolOnListingPAgeWithEamil</a></td><td rowspan="1">1723671724330</td><td rowspan="1">66409</td></tr><tr class="passedeven"><td><a href="#m4">ValidateViewFunctionalityOfTalentPool</a></td><td rowspan="1">1723671892328</td><td rowspan="1">103728</td></tr><tr class="passedeven"><td><a href="#m5">addTalentPool</a></td><td rowspan="1">1723671531892</td><td rowspan="1">126869</td></tr><tr class="passedeven"><td><a href="#m6">validateDeleteFunctionality</a></td><td rowspan="1">1723672255980</td><td rowspan="1">69365</td></tr><tr class="passedeven"><td><a href="#m7">validateDeleteManageViewButtonFunctionality</a></td><td rowspan="1">1723672202454</td><td rowspan="1">53519</td></tr><tr class="passedeven"><td><a href="#m8">validateManageViewButtonFunctionality</a></td><td rowspan="1">1723672133158</td><td rowspan="1">69289</td></tr><tr class="passedeven"><td><a href="#m9">validationCheck</a></td><td rowspan="1">1723671423528</td><td rowspan="1">108345</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">testCases.PolicyTest#validateStatusFunctionality</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Confirmation Button -  element not present
-	at org.testng.Assert.fail(Assert.java:99)
-	at utils.WebBasePage.click(WebBasePage.java:126)
-	at pageObjects.PolicyPage.clickOnConfirmationButton(PolicyPage.java:242)
-	at action.PolicyAction.verifyStatusFunctionality(PolicyAction.java:69)
-	at testCases.PolicyTest.validateStatusFunctionality(PolicyTest.java:60)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testCases.PolicyTest#addPolicy</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">testCases.PolicyTest#validateDeleteFunctionality</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">testCases.PolicyTest#validateEditFunctionality</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">testCases.PolicyTest#validateNoticePeriodPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">testCases.PolicyTest#validatePolicyNameOnListingPAge</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">testCases.PolicyTest#validateProbationPeriodPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">testCases.PolicyTest#validationCheck</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">testCases.TalentPoolListTest#ValidateAddAsCandidateFunctionalityOfTalentPool</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testCases.TalentPoolListTest#ValidateEditFunctionalityOfTalentPool</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testCases.TalentPoolListTest#ValidateTalentPoolOnListingPAge</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">testCases.TalentPoolListTest#ValidateTalentPoolOnListingPAgeWithEamil</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">testCases.TalentPoolListTest#ValidateViewFunctionalityOfTalentPool</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">testCases.TalentPoolListTest#addTalentPool</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">testCases.TalentPoolListTest#validateDeleteFunctionality</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">testCases.TalentPoolListTest#validateDeleteManageViewButtonFunctionality</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">testCases.TalentPoolListTest#validateManageViewButtonFunctionality</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">testCases.TalentPoolListTest#validationCheck</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

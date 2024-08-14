@@ -1,315 +1,335 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="7" failed="1" skipped="0">
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-08T22:50:52 IST" name="Default suite" finished-at="2024-08-08T23:02:13 IST" duration-ms="680624">
+  <suite started-at="2024-08-15T03:06:45 IST" name="Default suite" finished-at="2024-08-15T03:22:06 IST" duration-ms="921226">
     <groups>
     </groups>
-    <test started-at="2024-08-08T22:50:52 IST" name="Default test" finished-at="2024-08-08T23:02:13 IST" duration-ms="680624">
-      <class name="testCases.PolicyTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:50:52 IST" name="setUp" finished-at="2024-08-08T22:51:03 IST" duration-ms="10872" status="PASS">
+    <test started-at="2024-08-15T03:06:45 IST" name="Default test" finished-at="2024-08-15T03:22:06 IST" duration-ms="921226">
+      <class name="testCases.TalentPoolListTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:06:45 IST" name="setUp" finished-at="2024-08-15T03:07:02 IST" duration-ms="17467" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:51:03 IST" name="beforeMethod" finished-at="2024-08-08T22:51:04 IST" duration-ms="324" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:07:02 IST" name="beforeMethod" finished-at="2024-08-15T03:07:03 IST" duration-ms="575" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validationCheck()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.validationCheck()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="validationCheck()[pri:1, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:51:04 IST" name="validationCheck" finished-at="2024-08-08T22:53:27 IST" duration-ms="143621" status="PASS">
+        <test-method signature="validationCheck()[pri:1, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:07:03 IST" name="validationCheck" finished-at="2024-08-15T03:08:51 IST" duration-ms="108345" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validationCheck -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:53:27 IST" name="reportWrapUp" finished-at="2024-08-08T22:53:27 IST" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:08:51 IST" name="reportWrapUp" finished-at="2024-08-15T03:08:51 IST" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validationCheck status=SUCCESS method=PolicyTest.validationCheck()[pri:1, instance:testCases.PolicyTest@7a69b07] output={null}]]]>
+                <![CDATA[[TestResult name=validationCheck status=SUCCESS method=TalentPoolListTest.validationCheck()[pri:1, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validationCheck()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.validationCheck()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:53:27 IST" name="beforeMethod" finished-at="2024-08-08T22:53:27 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:08:51 IST" name="beforeMethod" finished-at="2024-08-15T03:08:51 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.PolicyTest.addPolicy()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.addTalentPool()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="addPolicy()[pri:2, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:53:27 IST" name="addPolicy" finished-at="2024-08-08T22:54:38 IST" duration-ms="70801" status="PASS">
+        <test-method signature="addTalentPool()[pri:2, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:08:51 IST" name="addTalentPool" finished-at="2024-08-15T03:10:58 IST" duration-ms="126869" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addPolicy -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:54:38 IST" name="reportWrapUp" finished-at="2024-08-08T22:54:38 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- addTalentPool -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:10:58 IST" name="reportWrapUp" finished-at="2024-08-15T03:10:58 IST" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=addPolicy status=SUCCESS method=PolicyTest.addPolicy()[pri:2, instance:testCases.PolicyTest@7a69b07] output={null}]]]>
+                <![CDATA[[TestResult name=addTalentPool status=SUCCESS method=TalentPoolListTest.addTalentPool()[pri:2, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.PolicyTest.addPolicy()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.addTalentPool()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:54:38 IST" name="beforeMethod" finished-at="2024-08-08T22:54:38 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:10:58 IST" name="beforeMethod" finished-at="2024-08-15T03:10:58 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validatePolicyNameOnListingPAge()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateTalentPoolOnListingPAge()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="validatePolicyNameOnListingPAge()[pri:3, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:54:38 IST" name="validatePolicyNameOnListingPAge" finished-at="2024-08-08T22:55:37 IST" depends-on-methods="testCases.PolicyTest.addPolicy" duration-ms="58729" status="PASS">
+        <test-method signature="ValidateTalentPoolOnListingPAge()[pri:3, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:10:58 IST" name="ValidateTalentPoolOnListingPAge" finished-at="2024-08-15T03:12:04 IST" depends-on-methods="testCases.TalentPoolListTest.addTalentPool" duration-ms="65540" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validatePolicyNameOnListingPAge -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:55:37 IST" name="reportWrapUp" finished-at="2024-08-08T22:55:37 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- ValidateTalentPoolOnListingPAge -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:12:04 IST" name="reportWrapUp" finished-at="2024-08-15T03:12:04 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validatePolicyNameOnListingPAge status=SUCCESS method=PolicyTest.validatePolicyNameOnListingPAge()[pri:3, instance:testCases.PolicyTest@7a69b07] output={null}]]]>
+                <![CDATA[[TestResult name=ValidateTalentPoolOnListingPAge status=SUCCESS method=TalentPoolListTest.ValidateTalentPoolOnListingPAge()[pri:3, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validatePolicyNameOnListingPAge()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateTalentPoolOnListingPAge()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:55:37 IST" name="beforeMethod" finished-at="2024-08-08T22:55:37 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:12:04 IST" name="beforeMethod" finished-at="2024-08-15T03:12:04 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateEditFunctionality()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateTalentPoolOnListingPAgeWithEamil()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="validateEditFunctionality()[pri:4, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:55:37 IST" name="validateEditFunctionality" finished-at="2024-08-08T22:56:56 IST" duration-ms="79387" status="PASS">
+        <test-method signature="ValidateTalentPoolOnListingPAgeWithEamil()[pri:4, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:12:04 IST" name="ValidateTalentPoolOnListingPAgeWithEamil" finished-at="2024-08-15T03:13:10 IST" depends-on-methods="testCases.TalentPoolListTest.addTalentPool" duration-ms="66409" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateEditFunctionality -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:56:56 IST" name="reportWrapUp" finished-at="2024-08-08T22:56:56 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- ValidateTalentPoolOnListingPAgeWithEamil -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:13:10 IST" name="reportWrapUp" finished-at="2024-08-15T03:13:10 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateEditFunctionality status=SUCCESS method=PolicyTest.validateEditFunctionality()[pri:4, instance:testCases.PolicyTest@7a69b07] output={null}]]]>
+                <![CDATA[[TestResult name=ValidateTalentPoolOnListingPAgeWithEamil status=SUCCESS method=TalentPoolListTest.ValidateTalentPoolOnListingPAgeWithEamil()[pri:4, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateEditFunctionality()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateTalentPoolOnListingPAgeWithEamil()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:56:56 IST" name="beforeMethod" finished-at="2024-08-08T22:56:56 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:13:10 IST" name="beforeMethod" finished-at="2024-08-15T03:13:10 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateStatusFunctionality()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateEditFunctionalityOfTalentPool()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="validateStatusFunctionality()[pri:5, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:56:56 IST" name="validateStatusFunctionality" finished-at="2024-08-08T22:58:28 IST" duration-ms="92055" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Confirmation Button -  element not present]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Confirmation Button -  element not present
-at org.testng.Assert.fail(Assert.java:99)
-at utils.WebBasePage.click(WebBasePage.java:126)
-at pageObjects.PolicyPage.clickOnConfirmationButton(PolicyPage.java:242)
-at action.PolicyAction.verifyStatusFunctionality(PolicyAction.java:69)
-at testCases.PolicyTest.validateStatusFunctionality(PolicyTest.java:60)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="ValidateEditFunctionalityOfTalentPool()[pri:5, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:13:10 IST" name="ValidateEditFunctionalityOfTalentPool" finished-at="2024-08-15T03:14:52 IST" depends-on-methods="testCases.TalentPoolListTest.addTalentPool" duration-ms="101568" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateStatusFunctionality -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:58:28 IST" name="reportWrapUp" finished-at="2024-08-08T22:58:29 IST" duration-ms="569" status="PASS">
+        </test-method> <!-- ValidateEditFunctionalityOfTalentPool -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:14:52 IST" name="reportWrapUp" finished-at="2024-08-15T03:14:52 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateStatusFunctionality status=FAILURE method=PolicyTest.validateStatusFunctionality()[pri:5, instance:testCases.PolicyTest@7a69b07] output={null}]]]>
+                <![CDATA[[TestResult name=ValidateEditFunctionalityOfTalentPool status=SUCCESS method=TalentPoolListTest.ValidateEditFunctionalityOfTalentPool()[pri:5, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateStatusFunctionality()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateEditFunctionalityOfTalentPool()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:58:29 IST" name="beforeMethod" finished-at="2024-08-08T22:58:29 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:14:52 IST" name="beforeMethod" finished-at="2024-08-15T03:14:52 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateProbationPeriodPage()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateViewFunctionalityOfTalentPool()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="validateProbationPeriodPage()[pri:6, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:58:29 IST" name="validateProbationPeriodPage" finished-at="2024-08-08T22:59:38 IST" duration-ms="68833" status="PASS">
+        <test-method signature="ValidateViewFunctionalityOfTalentPool()[pri:6, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:14:52 IST" name="ValidateViewFunctionalityOfTalentPool" finished-at="2024-08-15T03:16:36 IST" depends-on-methods="testCases.TalentPoolListTest.addTalentPool" duration-ms="103728" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateProbationPeriodPage -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:59:38 IST" name="reportWrapUp" finished-at="2024-08-08T22:59:38 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- ValidateViewFunctionalityOfTalentPool -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:16:36 IST" name="reportWrapUp" finished-at="2024-08-15T03:16:36 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateProbationPeriodPage status=SUCCESS method=PolicyTest.validateProbationPeriodPage()[pri:6, instance:testCases.PolicyTest@7a69b07] output={null}]]]>
+                <![CDATA[[TestResult name=ValidateViewFunctionalityOfTalentPool status=SUCCESS method=TalentPoolListTest.ValidateViewFunctionalityOfTalentPool()[pri:6, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateProbationPeriodPage()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateViewFunctionalityOfTalentPool()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:59:38 IST" name="beforeMethod" finished-at="2024-08-08T22:59:38 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:16:36 IST" name="beforeMethod" finished-at="2024-08-15T03:16:36 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateNoticePeriodPage()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateAddAsCandidateFunctionalityOfTalentPool()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="validateNoticePeriodPage()[pri:7, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T22:59:38 IST" name="validateNoticePeriodPage" finished-at="2024-08-08T23:00:53 IST" duration-ms="75491" status="PASS">
+        <test-method signature="ValidateAddAsCandidateFunctionalityOfTalentPool()[pri:7, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:16:36 IST" name="ValidateAddAsCandidateFunctionalityOfTalentPool" finished-at="2024-08-15T03:18:53 IST" depends-on-methods="testCases.TalentPoolListTest.addTalentPool" duration-ms="137081" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateNoticePeriodPage -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T23:00:53 IST" name="reportWrapUp" finished-at="2024-08-08T23:00:53 IST" duration-ms="2" status="PASS">
+        </test-method> <!-- ValidateAddAsCandidateFunctionalityOfTalentPool -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:18:53 IST" name="reportWrapUp" finished-at="2024-08-15T03:18:53 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateNoticePeriodPage status=SUCCESS method=PolicyTest.validateNoticePeriodPage()[pri:7, instance:testCases.PolicyTest@7a69b07] output={null}]]]>
+                <![CDATA[[TestResult name=ValidateAddAsCandidateFunctionalityOfTalentPool status=SUCCESS method=TalentPoolListTest.ValidateAddAsCandidateFunctionalityOfTalentPool()[pri:7, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateNoticePeriodPage()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.ValidateAddAsCandidateFunctionalityOfTalentPool()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T23:00:53 IST" name="beforeMethod" finished-at="2024-08-08T23:00:53 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:18:53 IST" name="beforeMethod" finished-at="2024-08-15T03:18:53 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateDeleteFunctionality()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.validateManageViewButtonFunctionality()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="validateDeleteFunctionality()[pri:8, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T23:00:53 IST" name="validateDeleteFunctionality" finished-at="2024-08-08T23:02:11 IST" duration-ms="78313" status="PASS">
+        <test-method signature="validateManageViewButtonFunctionality()[pri:8, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:18:53 IST" name="validateManageViewButtonFunctionality" finished-at="2024-08-15T03:20:02 IST" duration-ms="69289" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateManageViewButtonFunctionality -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:20:02 IST" name="reportWrapUp" finished-at="2024-08-15T03:20:02 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=validateManageViewButtonFunctionality status=SUCCESS method=TalentPoolListTest.validateManageViewButtonFunctionality()[pri:8, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void testCases.TalentPoolListTest.validateManageViewButtonFunctionality()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reportWrapUp -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:20:02 IST" name="beforeMethod" finished-at="2024-08-15T03:20:02 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void testCases.TalentPoolListTest.validateDeleteManageViewButtonFunctionality()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="validateDeleteManageViewButtonFunctionality()[pri:9, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:20:02 IST" name="validateDeleteManageViewButtonFunctionality" finished-at="2024-08-15T03:20:55 IST" duration-ms="53519" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateDeleteManageViewButtonFunctionality -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:20:55 IST" name="reportWrapUp" finished-at="2024-08-15T03:20:55 IST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=validateDeleteManageViewButtonFunctionality status=SUCCESS method=TalentPoolListTest.validateDeleteManageViewButtonFunctionality()[pri:9, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void testCases.TalentPoolListTest.validateDeleteManageViewButtonFunctionality()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reportWrapUp -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:20:55 IST" name="beforeMethod" finished-at="2024-08-15T03:20:55 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void testCases.TalentPoolListTest.validateDeleteFunctionality()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="validateDeleteFunctionality()[pri:10, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:20:55 IST" name="validateDeleteFunctionality" finished-at="2024-08-15T03:22:05 IST" duration-ms="69365" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateDeleteFunctionality -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T23:02:11 IST" name="reportWrapUp" finished-at="2024-08-08T23:02:11 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:22:05 IST" name="reportWrapUp" finished-at="2024-08-15T03:22:05 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateDeleteFunctionality status=SUCCESS method=PolicyTest.validateDeleteFunctionality()[pri:8, instance:testCases.PolicyTest@7a69b07] output={null}]]]>
+                <![CDATA[[TestResult name=validateDeleteFunctionality status=SUCCESS method=TalentPoolListTest.validateDeleteFunctionality()[pri:10, instance:testCases.TalentPoolListTest@3f197a46] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.PolicyTest.validateDeleteFunctionality()]]>
+                <![CDATA[public void testCases.TalentPoolListTest.validateDeleteFunctionality()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T23:02:11 IST" name="closeBrowser" finished-at="2024-08-08T23:02:13 IST" duration-ms="1484" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:22:05 IST" name="closeBrowser" finished-at="2024-08-15T03:22:06 IST" duration-ms="1124" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.PolicyTest@7a69b07]" started-at="2024-08-08T23:02:13 IST" name="close" finished-at="2024-08-08T23:02:14 IST" duration-ms="1279" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.TalentPoolListTest@3f197a46]" started-at="2024-08-15T03:22:06 IST" name="close" finished-at="2024-08-15T03:22:07 IST" duration-ms="965" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- testCases.PolicyTest -->
+      </class> <!-- testCases.TalentPoolListTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
