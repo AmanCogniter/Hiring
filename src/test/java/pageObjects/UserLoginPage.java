@@ -24,13 +24,15 @@ public class UserLoginPage extends WebBasePage {
     public static String password;
 
     public void enterUserName() {
+    	//driver.navigate().refresh();
+    	//staticWait(5000);
         if (System.getProperty("username") == null) {
             userName = prop.getProperty("username");
         } else {
             userName = System.getProperty("username");
         }
-        waitForVisibilityOfElement(By.cssSelector("input#username"), 20);
-        enter(By.cssSelector("input#username"), userName, "User Name", 15);
+        waitForVisibilityOfElement(By.xpath("//div/input[@name='Username']"), 20);
+        enter(By.xpath("//div/input[@name='Username']"), userName, "User Name", 15);
     }
 
     public void enterPassword() {
@@ -39,7 +41,8 @@ public class UserLoginPage extends WebBasePage {
         } else {
             password = System.getProperty("password");
         }
-        enter(By.cssSelector("input#password"), password, "Password", 10);
+        enter(By.xpath("//div/input[@name='Password']"), password, "Password", 10);
+        click(By.xpath("//span[@title='Show']"), "Visible Button", 10);
     }
 
     public void acceptPrivacyPolicy() {
@@ -47,6 +50,7 @@ public class UserLoginPage extends WebBasePage {
     }
 
     public void clickLogin() {
+    	//staticWait(2000);
 		/*
 		 * String actualUserName = getAtribute(By.xpath("//input[@id='username']"),
 		 * "value", 20); String actualPassword =
@@ -71,6 +75,7 @@ public class UserLoginPage extends WebBasePage {
     }
 
     public void forcefulLogOutLogin() {
+    	staticWait(5000);
         if (findElementVisibility(locUserName, 10) != null) {
             enterUserName();
             enterPassword();
