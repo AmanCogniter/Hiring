@@ -103,4 +103,5 @@ public class JobPostReportPage extends WebBasePage{
 		
 		
 	}
+	
 }

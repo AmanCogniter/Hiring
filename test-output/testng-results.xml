@@ -1,149 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="11" total="12" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-20T04:14:38 IST" name="Default suite" finished-at="2024-08-20T04:21:18 IST" duration-ms="400308">
+  <suite started-at="2024-08-23T02:29:52 IST" name="Default suite" finished-at="2024-08-23T02:31:49 IST" duration-ms="117538">
     <groups>
     </groups>
-    <test started-at="2024-08-20T04:14:38 IST" name="Default test" finished-at="2024-08-20T04:21:18 IST" duration-ms="400308">
-      <class name="testCases.JobPostReportTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:14:38 IST" name="setUp" finished-at="2024-08-20T04:14:53 IST" duration-ms="15211" status="PASS">
+    <test started-at="2024-08-23T02:29:52 IST" name="Default test" finished-at="2024-08-23T02:31:49 IST" duration-ms="117538">
+      <class name="testCases.JobBoardSetupTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.JobBoardSetupTest@50b472aa]" started-at="2024-08-23T02:29:52 IST" name="setUp" finished-at="2024-08-23T02:30:08 IST" duration-ms="16212" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:14:53 IST" name="beforeMethod" finished-at="2024-08-20T04:14:53 IST" duration-ms="456" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.JobBoardSetupTest@50b472aa]" started-at="2024-08-23T02:30:08 IST" name="beforeMethod" finished-at="2024-08-23T02:30:08 IST" duration-ms="574" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void testCases.JobPostReportTest.validateHiringReportWithDesignation()]]>
+                <![CDATA[public void testCases.JobBoardSetupTest.validateTestimonialsPageWithDeatilRadioButtonFunctionalitty() throws java.awt.AWTException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="validateHiringReportWithDesignation()[pri:1, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:14:53 IST" name="validateHiringReportWithDesignation" finished-at="2024-08-20T04:16:19 IST" duration-ms="85746" status="PASS">
+        <test-method signature="validateTestimonialsPageWithDeatilRadioButtonFunctionalitty()[pri:9, instance:testCases.JobBoardSetupTest@50b472aa]" started-at="2024-08-23T02:30:08 IST" name="validateTestimonialsPageWithDeatilRadioButtonFunctionalitty" finished-at="2024-08-23T02:31:47 IST" duration-ms="98727" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateHiringReportWithDesignation -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:16:19 IST" name="reportWrapUp" finished-at="2024-08-20T04:16:19 IST" duration-ms="4" status="PASS">
+        </test-method> <!-- validateTestimonialsPageWithDeatilRadioButtonFunctionalitty -->
+        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.JobBoardSetupTest@50b472aa]" started-at="2024-08-23T02:31:47 IST" name="reportWrapUp" finished-at="2024-08-23T02:31:47 IST" duration-ms="29" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=validateHiringReportWithDesignation status=SUCCESS method=JobPostReportTest.validateHiringReportWithDesignation()[pri:1, instance:testCases.JobPostReportTest@48ae9b55] output={null}]]]>
+                <![CDATA[[TestResult name=validateTestimonialsPageWithDeatilRadioButtonFunctionalitty status=SUCCESS method=JobBoardSetupTest.validateTestimonialsPageWithDeatilRadioButtonFunctionalitty()[pri:9, instance:testCases.JobBoardSetupTest@50b472aa] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void testCases.JobPostReportTest.validateHiringReportWithDesignation()]]>
+                <![CDATA[public void testCases.JobBoardSetupTest.validateTestimonialsPageWithDeatilRadioButtonFunctionalitty() throws java.awt.AWTException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:16:19 IST" name="beforeMethod" finished-at="2024-08-20T04:16:19 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void testCases.JobPostReportTest.validateHiringReportWithStatus()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="validateHiringReportWithStatus()[pri:2, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:16:19 IST" name="validateHiringReportWithStatus" finished-at="2024-08-20T04:17:52 IST" duration-ms="92340" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateHiringReportWithStatus -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:17:52 IST" name="reportWrapUp" finished-at="2024-08-20T04:17:52 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=validateHiringReportWithStatus status=SUCCESS method=JobPostReportTest.validateHiringReportWithStatus()[pri:2, instance:testCases.JobPostReportTest@48ae9b55] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void testCases.JobPostReportTest.validateHiringReportWithStatus()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:17:52 IST" name="beforeMethod" finished-at="2024-08-20T04:17:52 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void testCases.JobPostReportTest.validateStatuisRadioButtonFunctionalityOfHiringReportWithDesignation()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="validateStatuisRadioButtonFunctionalityOfHiringReportWithDesignation()[pri:3, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:17:52 IST" name="validateStatuisRadioButtonFunctionalityOfHiringReportWithDesignation" finished-at="2024-08-20T04:19:31 IST" duration-ms="99421" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateStatuisRadioButtonFunctionalityOfHiringReportWithDesignation -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:19:31 IST" name="reportWrapUp" finished-at="2024-08-20T04:19:31 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=validateStatuisRadioButtonFunctionalityOfHiringReportWithDesignation status=SUCCESS method=JobPostReportTest.validateStatuisRadioButtonFunctionalityOfHiringReportWithDesignation()[pri:3, instance:testCases.JobPostReportTest@48ae9b55] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void testCases.JobPostReportTest.validateStatuisRadioButtonFunctionalityOfHiringReportWithDesignation()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:19:31 IST" name="beforeMethod" finished-at="2024-08-20T04:19:31 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void testCases.JobPostReportTest.validateStatuisRadioButtonFunctionalityOfHiringReportWithStatus()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="validateStatuisRadioButtonFunctionalityOfHiringReportWithStatus()[pri:4, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:19:31 IST" name="validateStatuisRadioButtonFunctionalityOfHiringReportWithStatus" finished-at="2024-08-20T04:21:17 IST" duration-ms="105822" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateStatuisRadioButtonFunctionalityOfHiringReportWithStatus -->
-        <test-method is-config="true" signature="reportWrapUp(org.testng.ITestResult,java.lang.reflect.Method)[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:21:17 IST" name="reportWrapUp" finished-at="2024-08-20T04:21:17 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=validateStatuisRadioButtonFunctionalityOfHiringReportWithStatus status=SUCCESS method=JobPostReportTest.validateStatuisRadioButtonFunctionalityOfHiringReportWithStatus()[pri:4, instance:testCases.JobPostReportTest@48ae9b55] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void testCases.JobPostReportTest.validateStatuisRadioButtonFunctionalityOfHiringReportWithStatus()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reportWrapUp -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:21:17 IST" name="closeBrowser" finished-at="2024-08-20T04:21:18 IST" duration-ms="1075" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testCases.JobBoardSetupTest@50b472aa]" started-at="2024-08-23T02:31:47 IST" name="closeBrowser" finished-at="2024-08-23T02:31:49 IST" duration-ms="1762" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.JobPostReportTest@48ae9b55]" started-at="2024-08-20T04:21:18 IST" name="close" finished-at="2024-08-20T04:21:19 IST" duration-ms="653" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.JobBoardSetupTest@50b472aa]" started-at="2024-08-23T02:31:49 IST" name="close" finished-at="2024-08-23T02:31:51 IST" duration-ms="1328" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- testCases.JobPostReportTest -->
+      </class> <!-- testCases.JobBoardSetupTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
