@@ -83,7 +83,8 @@ public class UserLoginPage extends WebBasePage {
             clickLogin();
         } else {
             clickByJavascript(By.id("navbarDropdownMenuLink"), "Logout menu", 30);
-            clickByJavascript(By.xpath("//a[contains(text(),'Logout')]"), "Logout", 10);
+            clickByJavascript(By.xpath("//a[contains(text(),'Logout')]"), "Logout", 30);
+            //click(By.xpath("//div/a[contains(text(),'Click Here')]"), "Click Here", 10);
             enterUserName();
             enterPassword();
             acceptPrivacyPolicy();

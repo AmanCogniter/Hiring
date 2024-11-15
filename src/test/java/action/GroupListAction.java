@@ -23,6 +23,7 @@ public class GroupListAction {
 
 	public void validationCheck() {
 		groupListPage.clickOnAddGroupList();
+		groupListPage.clickOnUserGuide();
 		groupListPage.save();
 
 		groupListPage.VerifyMandatoryFieldValidation();

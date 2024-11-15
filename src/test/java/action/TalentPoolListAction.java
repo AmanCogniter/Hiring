@@ -1,5 +1,7 @@
 package action;
 
+import java.awt.AWTException;
+
 import org.openqa.selenium.WebDriver;
 
 import pageObjects.TalentPoolListPage;
@@ -28,20 +30,27 @@ public class TalentPoolListAction {
 		talentPoolListPage.VerifyMandatoryFieldValidation();
 
 	}
-	public void addTalentPool() {
+
+	public void addTalentPool() throws AWTException {
 		talentPoolListPage.clickOnAddTalentPoolList();
-		talentPoolListPage.enterEmail();
 		
+		
+
 		talentPoolListPage.uploadDocument();
-		
-		
 		talentPoolListPage.enterMobileNumber();
+		talentPoolListPage.enterEmail();
 		talentPoolListPage.enterFirstName();
 		talentPoolListPage.enterLastName();
+		
+		talentPoolListPage.reEnterFirstName();
+		
+		
+
 		talentPoolListPage.save();
 		talentPoolListPage.captureNotifyMessage();
 
 	}
+
 	public void verifyTalentPoolOnListingPage() {
 		talentPoolListPage.clickOnTalentPoolNameSearchField();
 		talentPoolListPage.enterNameIntoSearchField();
@@ -49,6 +58,7 @@ public class TalentPoolListAction {
 		talentPoolListPage.verifyTalentPool();
 
 	}
+
 	public void verifyTalentPoolOnListingPageWithEmail() {
 		talentPoolListPage.clickOnTalentPoolNameSearchField();
 		talentPoolListPage.enterNameIntoSearchField();
@@ -58,6 +68,7 @@ public class TalentPoolListAction {
 		talentPoolListPage.verifyTalentPool();
 
 	}
+
 	public void verifyDeleteButtonFunctionalityOfTalentPool() {
 
 		talentPoolListPage.clickOnCheckBox();
@@ -65,6 +76,7 @@ public class TalentPoolListAction {
 		talentPoolListPage.clickOnConfirmationButton();
 		talentPoolListPage.captureDeleteNotifyMessage();
 	}
+
 	public void verifyEditFunctionalityOfTalentPool() {
 
 		talentPoolListPage.clickOnActionButton();
@@ -72,6 +84,7 @@ public class TalentPoolListAction {
 		talentPoolListPage.save();
 		talentPoolListPage.captureUpdateNotifyMessage();
 	}
+
 	public void verifyAddAsCandidateFunctionalityOfTalentPool() {
 
 		talentPoolListPage.clickOnActionButton();
@@ -80,15 +93,16 @@ public class TalentPoolListAction {
 		talentPoolListPage.enterDescription();
 		talentPoolListPage.saveButton();
 	}
+
 	public void verifyViewFunctionalityOfTalentPool() {
 
 		talentPoolListPage.clickOnActionButton();
 		talentPoolListPage.clickOnViewButton();
 		talentPoolListPage.clickOnBackToList();
-		
+
 	}
-	public void  verifyManageViewFunctionality()
-	{
+
+	public void verifyManageViewFunctionality() {
 		talentPoolListPage.clickOnManageView();
 		talentPoolListPage.clickOnAddManageView();
 		talentPoolListPage.enterViewName();
@@ -100,12 +114,12 @@ public class TalentPoolListAction {
 		talentPoolListPage.enterValue();
 		talentPoolListPage.saveManageView();
 	}
-	public void  verifyDeleteManageViewFunctionality()
-	{
+
+	public void verifyDeleteManageViewFunctionality() {
 		talentPoolListPage.clickOnManageView();
 		talentPoolListPage.clickOnDeleteManageView();
 		talentPoolListPage.clickOnConfirmationButton();
-		
+
 	}
 
 }

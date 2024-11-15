@@ -70,6 +70,7 @@ public class JobRequisitionAction {
 		jobRequisitionPage.enterDesignitionIntoSearchField();
 		jobRequisitionPage.clickOnSearchButton();
 		jobRequisitionPage.verifyDesignationOnListingPage();
+		jobRequisitionPage.clickOnActionButton();
 		jobRequisitionPage.clickOnView();
 		jobRequisitionPage.clickOnBackToList();
 		
@@ -79,17 +80,17 @@ public class JobRequisitionAction {
 		jobRequisitionPage.enterDesignitionIntoSearchField();
 		jobRequisitionPage.clickOnSearchButton();
 		jobRequisitionPage.verifyDesignationOnListingPage();
+		jobRequisitionPage.clickOnActionButton();
 		jobRequisitionPage.clickOnEdit();
 		jobRequisitionPage.save();
 		
 	}
 	public void  verifyRejectButtonFunctionality()
 	{
-		/*
-		 * jobRequisitionPage.enterDesignitionIntoSearchField();
-		 * jobRequisitionPage.clickOnSearchButton();
-		 * jobRequisitionPage.verifyDesignationOnListingPage();
-		 */
+		jobRequisitionPage.enterDesignitionIntoSearchFieldForReject();
+		jobRequisitionPage.clickOnSearchButton();
+		jobRequisitionPage.verifyDesignationOnListingPageForReject();
+		jobRequisitionPage.clickOnActionButton();
 		jobRequisitionPage.clickOnReject();
 		jobRequisitionPage.enterComment();
 		jobRequisitionPage.clickOnSaveComment();
@@ -100,8 +101,9 @@ public class JobRequisitionAction {
 		jobRequisitionPage.clickOnAddJobRequisition();
 		jobRequisitionPage.clickOnAddDesignation();
 		jobRequisitionPage.enterDesignationName();
+		jobRequisitionPage.selectStatus();
 		jobRequisitionPage.clickOnSaveDesignation();
-		
+		//jobRequisitionPage.clickOnClose();
 		jobRequisitionPage.selectdesignationForReject();
 		jobRequisitionPage.enterPosition();
 		jobRequisitionPage.selectdepartment();

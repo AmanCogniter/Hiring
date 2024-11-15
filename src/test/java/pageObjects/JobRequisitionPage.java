@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -43,34 +44,52 @@ public class JobRequisitionPage extends WebBasePage {
 	}
 
 	public void clickFullMenuDropDown() {
-		staticWait(5000);
+		staticWait(25000);
 		click(By.xpath("//div/ul/li/a/span[contains(text(),'Full Menu')]"), "Full Menu", 30);
 		staticWait(2000);
 	}
 
 	public void clickOnHiring() {
-		click(By.xpath("//li[@data-name='Hiring']//a//i//following::text()[1]//following::span"), "Hiring", 30);
-		staticWait(3000);
+
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			// Locating element by link text and store in variable "Element"
+			WebElement Element = driver.findElement(By.xpath("//li/a[contains(text(),'Expense')]"));
+
+			// Scrolling down the page till the element is found
+			js.executeScript("arguments[0].scrollIntoView();", Element);
+			staticWait(1000);
+			WebElement hiring = driver.findElement(By.xpath("//li/a[contains(text(),'Hiring')]"));
+			if (hiring.isDisplayed()) {
+				click(By.xpath("//li/a[contains(text(),'Hiring')]"), "Hiring", 30);
+				staticWait(2000);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			click(By.xpath("//li[@data-name='Hiring']/a//following::span"), "Hiring", 30);
+		}
 	}
 
 	public void clickOnJobRequisition() {
-		click(By.xpath("//div/ul/li/a[text()='Job Requisition']"), "Job Requisition", 30);
+		click(By.xpath("//a[contains(text(),'Job Requisition')]"), "Job Requisition", 30);
 		staticWait(3000);
 	}
 
 	public void clickOnAddJobRequisition() {
-		clickByJavascript(By.xpath("//a[@data-original-title='Add Requisition']"), "Add Job Requisition", 20);
+		clickByJavascript(By.xpath("//a[@title='Add New']"), "Add Job Requisition", 20);
 		staticWait(2000);
 	}
 
 	public void save() {
 
 		staticWait(1000);
-		WebElement savebutton = driver.findElement(By.xpath("//div/button[contains(text(),'Submit')]"));
+		WebElement savebutton = driver.findElement(By.xpath("//div/button[contains(text(),'Save')]"));
 		Actions action = new Actions(driver);
 		action.moveToElement(savebutton).click().perform();
 		// click(By.xpath("//div/a[contains(text(),'Save')]"), "Save Button", 20);
 		// waitForLoad(20);
+		staticWait(3000);
 	}
 
 	public void captureNotifyMessage() {
@@ -93,8 +112,7 @@ public class JobRequisitionPage extends WebBasePage {
 		String expectedText;
 
 		List<WebElement> errorMessageLocator = findMultipleElement(
-				By.xpath("//div[@class='form-group']//span[contains(@class,'text-danger field-validation-error')]"),
-				45);
+				By.xpath("//div[@class='form-group']//span[contains(@class,'invalid-feedback d-block')]"), 45);
 		String[] expectedValue = { "Designation", "Positions", "Department", "Location" };
 		for (Object expected : expectedValue) {
 			/*
@@ -138,7 +156,7 @@ public class JobRequisitionPage extends WebBasePage {
 		staticWait(3000);
 		designation = prop.getProperty("designition");
 
-		selectValueWithText(By.xpath("//select[@id='DesignationId']"), designation, "Designation", 25);
+		selectValueWithText(By.xpath("//select[@name='Designation']"), designation, "Designation", 25);
 
 	}
 
@@ -146,66 +164,78 @@ public class JobRequisitionPage extends WebBasePage {
 		// staticWait(3000);
 		position = prop.getProperty("numberofposition");
 
-		enter(By.xpath("//input[@id='Positions']"), position, "Position", 25);
+		enter(By.xpath("//span/input[@type='text']"), position, "Position", 25);
 
 	}
 
 	public void selectdepartment() {
 		// staticWait(3000);
-		department = prop.getProperty("department");
+		// department = prop.getProperty("department");
 
-		selectValueWithText(By.xpath("//select[@id='dept_id']"), department, "Department", 25);
+		selectValueWithIndex(By.xpath("//select[@name='Department']"), 2, "Department", 25);
 
 	}
 
 	public void selectLocation() {
 		// staticWait(3000);
 
-		click(By.xpath("//button[@class='multiselect custom-select btn btn-default']"), "Location DropDown", 25);
-		enter(By.xpath("//div/input[@placeholder='Enter Keywords']"), "Dallas", "Location", 25);
-		click(By.xpath("(//input[@id='hdnLocationId']/parent::div//label/input[@type='radio'])[3]"), "Location", 25);
+		click(By.xpath("//span[@class='multiselect__placeholder']"), "Location DropDown", 25);
+		// enter(By.xpath("//div/input[@placeholder='Select option']"), "Dallas",
+		// "Location", 25);
+		click(By.xpath("(//ul/li/span[@data-select='Press enter to select'])[2]/span"), "Location", 25);
 
 	}
 
 	public void enterStartSallry() {
 		// staticWait(3000);
 
-		enter(By.xpath("//tg-input/input[@id='SalaryFrom']"), "60000", "Salary From", 25);
+		enter(By.xpath("//span/input[@id='AnnualSalary']"), "60000", "Salary From", 25);
 
 	}
 
 	public void enterSallryTo() {
 		// staticWait(3000);
 
-		enter(By.xpath("//tg-input/input[@id='SalaryTo']"), "80000", "Salary To", 25);
+		enter(By.xpath("//span/input[@id='Salary']"), "80000", "Salary To", 25);
 
 	}
+
 	public void selectExperienceFrom() {
 		// staticWait(3000);
-		//designation = prop.getProperty("designition");
+		// designation = prop.getProperty("designition");
 
-		selectValueWithText(By.xpath("//select[@id='ExpFrom']"), "4", "Experience from", 25);
+		selectValueWithText(By.xpath("//select[@name='ExpForm']"), "4", "Experience from", 25);
 
 	}
+
 	public void selectExperienceTo() {
 		// staticWait(3000);
-		//designation = prop.getProperty("designition");
+		// designation = prop.getProperty("designition");
 
-		selectValueWithText(By.xpath("//select[@id='ExpTo']"), "7", "Experience To", 25);
+		selectValueWithText(By.xpath("//select[@name='ExpTo']"), "7", "Experience To", 25);
 
 	}
+
 	public void enterReason() {
 		// staticWait(3000);
 
-		enter(By.xpath("//textarea[@id='Reason']"), "Test", "Reason", 25);
+		enter(By.xpath("//textarea[@class='form-control']"), "Test", "Reason", 25);
 
 	}
+
 	public void enterDesignitionIntoSearchField() {
-	 staticWait(3000);
+		staticWait(5000);
 
-		enter(By.xpath("//div/input[@id='search']"), designation, "Designition", 25);
+		enter(By.xpath("//div/input[@placeholder='Search By Designation Name ']"), designation, "Designition", 25);
 
 	}
+	public void enterDesignitionIntoSearchFieldForrejectFunctionality() {
+		staticWait(5000);
+
+		enter(By.xpath("//div/input[@placeholder='Search By Designation Name ']"), designationName, "Designition", 25);
+
+	}
+
 	public void clickOnSearchButton() {
 		// staticWait(3000);
 
@@ -213,12 +243,12 @@ public class JobRequisitionPage extends WebBasePage {
 
 	}
 
-	
 	public void verifyDesignationOnListingPage() {
-		 staticWait(3000);
+		staticWait(3000);
 
 		try {
-			WebElement verify = driver.findElement(By.xpath("//table[@id='RequisitionDataList']/tbody/tr/td[contains(text(),'"+designation+"')]"));
+			WebElement verify = driver
+					.findElement(By.xpath("//table/tbody/tr/td/span/span[contains(text(),'" + designation + "')]"));
 			if (verify.isDisplayed()) {
 				logger.info("designation is available on listing page");
 			}
@@ -228,29 +258,33 @@ public class JobRequisitionPage extends WebBasePage {
 		}
 
 	}
+
 	public void clickOnCheckBox() {
 		// staticWait(3000);
 
-		click(By.xpath("//div[@class='custom-control custom-checkbox']"), "CheckBox", 25);
+		click(By.xpath("//div[@class='custom-control custom-checkbox custom-control-inline']"), "CheckBox", 25);
 
 	}
+
 	public void clickOndelete() {
 		// staticWait(3000);
 
-		clickByJavascript(By.xpath("//a[@id='DeleteMul']"), "Delete Button", 25);
+		clickByJavascript(By.xpath("//a[@id='DeleteMultiple']"), "Delete Button", 25);
 
 	}
+
 	public void clickOnConfirmationButton() {
-		//staticWait(1000);
-		
+		// staticWait(1000);
+
 		click(By.xpath("//button[@title='OK']"), "Confirmation Button", 20);
 
 	}
+
 	public void captureDeleteNotifyMessage() {
 		try {
 			staticWait(2000);
-			WebElement notifymessage = driver.findElement(
-					By.xpath("//div/span[contains(text(),'Requisition has been successfully deleted')]"));
+			WebElement notifymessage = driver
+					.findElement(By.xpath("//div/span[contains(text(),'Requisition has been successfully deleted')]"));
 			if (notifymessage.isDisplayed()) {
 				logger.info(notifymessage.getText());
 			}
@@ -259,13 +293,15 @@ public class JobRequisitionPage extends WebBasePage {
 			logger.info("Requisition hasn't been successfully deleted");
 		}
 	}
-	public void clickOnView() {
-		 staticWait(1000);
 
-		click(By.xpath("//a[@data-original-title='View Detail']"), "View Button", 25);
+	public void clickOnView() {
+		staticWait(1000);
+
+		click(By.xpath("//a[@title='View']"), "View Button", 25);
 		try {
-		 staticWait(1000);
-			WebElement requisitiondetails = driver.findElement(By.xpath("//div/h2[contains(text(),'Requisition Details')]"));
+			staticWait(1000);
+			WebElement requisitiondetails = driver
+					.findElement(By.xpath("//div/h2[contains(text(),'Requisition Details')]"));
 			if (requisitiondetails.isDisplayed()) {
 				logger.info("Requisition Details Page openend");
 			}
@@ -275,99 +311,132 @@ public class JobRequisitionPage extends WebBasePage {
 		}
 
 	}
-	public void clickOnBackToList() {
-		//staticWait(1000);
-		
-		click(By.xpath("//a[@data-original-title='Back to list']"), "Back To List", 20);
+
+	public void clickOnActionButton() {
+		staticWait(1000);
+
+		click(By.xpath("//span[@class='actions mobileaction']"), "Action Button", 20);
 
 	}
+
+	public void clickOnBackToList() {
+		// staticWait(1000);
+
+		click(By.xpath("//a[@title='Back to List']"), "Back To List", 20);
+
+	}
+
 	public void clickOnEdit() {
-		//staticWait(1000);
-		
-		click(By.xpath("//a[@data-original-title='Edit']"), "Edit Button", 20);
+		// staticWait(1000);
+
+		click(By.xpath("//a[@title='Edit']"), "Edit Button", 20);
 		try {
-			WebElement updateRequisition = driver.findElement(By.xpath("//div/span[contains(text(),'Update Requisition')]"));
+			WebElement updateRequisition = driver
+					.findElement(By.xpath("//div/span[contains(text(),'Add Requisition')]"));
 			if (updateRequisition.isDisplayed()) {
-				logger.info("Update page openend");
+				logger.info("Edit page openend");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			logger.info("Update page not openend");
+			logger.info("Edit page not openend");
 
 		}
 
 	}
+
 	public void clickOnApprove() {
-		//staticWait(1000);
-		
+		// staticWait(1000);
+
 		clickByJavascript(By.xpath("//a[@data-original-title='Approve']"), "Approve", 20);
 
 	}
+
 	public void clickOnReject() {
-	staticWait(3000);
-		
-		clickByJavascript(By.xpath("//a[@data-original-title='Reject']"), "Reject", 20);
+		staticWait(3000);
+
+		clickByJavascript(By.xpath("//a[@title='Reject']"), "Reject", 20);
 
 	}
+
 	public void enterComment() {
-		 staticWait(1000);
+		staticWait(1000);
 
-			enter(By.xpath("//textarea[@name='Comment']"), "Test", "Comment", 25);
+		enter(By.xpath("//textarea[@placeholder='Enter Comment']"), "Test", "Comment", 25);
 
-		}
+	}
+
 	public void clickOnSaveComment() {
-		//staticWait(1000);
-		
+		// staticWait(1000);
+
 		click(By.xpath("//button[contains(text(),'Save')]"), "Save", 20);
 		logger.info("Rejected successfully");
 	}
+
 	public void clickOnAddDesignation() {
 		staticWait(3000);
-		
-		clickByJavascript(By.xpath("//a[@data-original-title='Add Designation']"), "Add Designation", 20);
+
+		click(By.xpath("//a[@class='round-icon-small btn-dark theme-primary']"), "Add Designation", 20);
 
 	}
+
 	public void enterDesignationName() {
-		 staticWait(1000);
-		 designationName="Designation Name "+datevalue;
-			enter(By.xpath("//input[@id='DesignationName']"), designationName, "Designation name", 25);
+		staticWait(1000);
+		designationName = "Designation Name " + datevalue;
+		enter(By.xpath("//input[@id='Designation']"), designationName, "Designation name", 25);
 
-		}
+	}
+
 	public void clickOnSaveDesignation() {
-		//staticWait(1000);
-		
-		click(By.xpath("//button[contains(text(),'Save')]"), "Save", 20);
-		
-		
+		// staticWait(1000);
+
+		click(By.xpath("(//button[@type='submit'])[2]"), "Save", 20);
+
 	}
-	public void selectdesignationForReject() {
+
+	public void clickOnClose() {
 		staticWait(3000);
-		
 
-		selectValueWithText(By.xpath("//select[@id='DesignationId']"), designationName, "Designation", 25);
+		click(By.xpath("(//button[@type='button'])[4]"), "Close", 20);
 
 	}
+
+	public void selectStatus() {
+		staticWait(1000);
+
+		selectValueWithText(By.xpath("//div/select[@name='Status']"), "Active", "Status", 25);
+
+	}
+
+	public void selectdesignationForReject() {
+		driver.navigate().refresh();
+		staticWait(5000);
+
+		click(By.xpath("//select[@name='Designation']"), "Designation DropDown", 30);
+		staticWait(1000);
+		selectValueWithText(By.xpath("//select[@name='Designation']"), designationName, "Designation", 25);
+
+	}
+
 	public void enterDesignitionIntoSearchFieldForReject() {
-		 staticWait(3000);
+		staticWait(5000);
 
-			enter(By.xpath("//div/input[@id='search']"), designationName, "Designition", 25);
+		enter(By.xpath("//div/input[@placeholder='Search By Designation Name ']"), designationName, "Designition", 25);
 
-		}
-		
+	}
 
-		
-		public void verifyDesignationOnListingPageForReject() {
-			 staticWait(3000);
+	public void verifyDesignationOnListingPageForReject() {
+		staticWait(3000);
 
-			try {
-				WebElement verify = driver.findElement(By.xpath("//table[@id='RequisitionDataList']/tbody/tr/td[contains(text(),'"+designationName+"')]"));
-				if (verify.isDisplayed()) {
-					logger.info("designation is available on listing page");
-				}
-			} catch (Exception e) {
-				// TODO: handle exception
-				logger.info("designation is not available on listing page");
+		try {
+			WebElement verify = driver.findElement(By.xpath(
+					"//table/tbody/tr/td/span/span[contains(text(),'" + designationName + "')]"));
+			if (verify.isDisplayed()) {
+				logger.info("designation is available on listing page");
 			}
-
+		} catch (Exception e) {
+			// TODO: handle exception
+			logger.info("designation is not available on listing page");
 		}
+
+	}
 }

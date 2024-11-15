@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -50,30 +51,59 @@ public class CandidateListPage extends WebBasePage {
 	}
 
 	public void clickFullMenuDropDown() {
-		staticWait(5000);
+		staticWait(35000);
 		click(By.xpath("//div/ul/li/a/span[contains(text(),'Full Menu')]"), "Full Menu", 30);
+		
 		staticWait(2000);
 	}
 
 	public void clickOnHiring() {
-		click(By.xpath("//li[@data-name='Hiring']//a//i//following::text()[1]//following::span"), "Hiring", 30);
-		staticWait(2000);
+		
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	        
+
+	        //Locating element by link text and store in variable "Element"        		
+	        WebElement Element = driver.findElement(By.xpath("//li/a[contains(text(),'Expense')]"));
+
+	        // Scrolling down the page till the element is found		
+	        js.executeScript("arguments[0].scrollIntoView();", Element);
+	        staticWait(1000);
+			WebElement hiring = driver.findElement(By.xpath("//li/a[contains(text(),'Hiring')]"));
+			if (hiring.isDisplayed()) {
+				click(By.xpath("//li/a[contains(text(),'Hiring')]"), "Hiring", 30);
+				staticWait(2000);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			click(By.xpath("//li[@data-name='Hiring']/a//following::span"), "Hiring", 30);
+		}
 	}
 
 	public void clickOnCandidateList() {
-		click(By.xpath("(//a[contains(text(),'Candidate List')])[2]"), "Candidate List", 30);
+		click(By.xpath("//li/a[contains(text(),'Candidate List')]"), "Candidate List", 30);
 		staticWait(3000);
 	}
 
 	public void clickOnAddCandidateList() {
-		clickByJavascript(By.xpath("//a[@data-original-title='Add Candidate']"), "Add Candidate", 20);
+		clickByJavascript(By.xpath("//a[@title='Add Candidate']"), "Add Candidate", 20);
 		staticWait(2000);
 	}
 
 	public void save() {
 		scrollDown();
 		staticWait(1000);
-		WebElement savebutton = driver.findElement(By.xpath("//div/a[contains(text(),'Save')]"));
+		WebElement savebutton = driver.findElement(By.xpath("//div/button[contains(text(),'Save')]"));
+		Actions action=new Actions(driver);
+		action.moveToElement(savebutton).click().perform();
+		//click(By.xpath("//div/a[contains(text(),'Save')]"), "Save Button", 20);
+		// waitForLoad(20);
+	}
+	public void manageViewSave() {
+		scrollDown();
+		staticWait(1000);
+		WebElement savebutton = driver.findElement(By.xpath("(//div/a[contains(text(),'Save')])[last()]"));
 		Actions action=new Actions(driver);
 		action.moveToElement(savebutton).click().perform();
 		//click(By.xpath("//div/a[contains(text(),'Save')]"), "Save Button", 20);
@@ -101,7 +131,7 @@ public class CandidateListPage extends WebBasePage {
 
 		List<WebElement> errorMessageLocator = findMultipleElement(
 				By.xpath("//div[@class='form-group']//span[contains(@class,'invalid-feedback')]"), 45);
-		String[] expectedValue = { "Select Job", "First Name", "Last Name", "Email", "Mobile Number" };
+		String[] expectedValue = { "Post To", "Name", "Last Name", "Email", "mobile number" };
 		for (Object expected : expectedValue) {
 			/*
 			 * WebElement AsteriskField = findElementVisibility(By.xpath("//label[text()='"+
@@ -142,8 +172,8 @@ public class CandidateListPage extends WebBasePage {
 
 	public void selectJob() {
 		staticWait(5000);
-		click(By.xpath("//select[@name='Job']"), "Job DropDown", 20);
-		selectValueWithText(By.xpath("//select[@name='Job']"), "Quality Analyst", "Job", 20);
+		click(By.xpath("//select[@name='PostTo']"), "Job DropDown", 20);
+		selectValueWithIndex(By.xpath("//select[@name='PostTo']"), 2, "Job", 20);
 
 	}
 
@@ -151,40 +181,40 @@ public class CandidateListPage extends WebBasePage {
 
 		firstName = prop.getProperty("firstname") + datevalue;
 		System.out.println(firstName);
-		enter(By.xpath("//div/input[@id='first_name']"), firstName, "First Name", 25);
+		enter(By.xpath("//span/input[@id='first_name']"), firstName, "First Name", 25);
 
 	}
 
 	public void enterLastName() {
 
 		lastName = prop.getProperty("lastname");
-		enter(By.xpath("//div/input[@id='last_name']"), lastName, "Last Name", 25);
+		enter(By.xpath("//span/input[@id='LAST_NAME']"), lastName, "Last Name", 25);
 
 	}
 
 	public void enterEmail() {
 
 		email = prop.getProperty("email") + datevalue + "@gmail.com";
-		enter(By.xpath("//div/input[@id='email_id']"), email, "Email", 25);
+		enter(By.xpath("//span/input[@id='email_id']"), email, "Email", 25);
 
 	}
 
 	public void enterMobileNumber() {
 
 		mobileNumber = prop.getProperty("mobilenumber");
-		enter(By.xpath("//div/input[@name='mobile']"), mobileNumber, "Mobile Number", 25);
+		enter(By.xpath("//span/input[@id='Mobile']"), mobileNumber, "Mobile Number", 25);
 
 	}
 
 	public void clickOnCandidteNameSearchField() {
-		waitForLoad(50);
-		click(By.xpath("//div/h5/a/span[contains(text(),'Candidate  Name')]"), "Candidate Name Search Field", 25);
+		staticWait(7000);
+		click(By.xpath("//span[contains(text(),'Candidate Name')]"), "Candidate Name Search Field", 25);
 
 	}
 
 	public void enterCandidateNameIntoSearchField() {
-
-		enter(By.xpath("//div/input[@placeholder='Search by Candidate  Name']"), firstName, "Candaidate Name", 25);
+		staticWait(2000);
+		enter(By.xpath("//div/input[contains(@placeholder,'Candidate Name')]"), firstName, "Candaidate Name", 25);
 
 	}
 
@@ -192,7 +222,7 @@ public class CandidateListPage extends WebBasePage {
 		staticWait(3000);
 		try {
 			WebElement candidateNAme = driver
-					.findElement(By.xpath("//div/span[contains(text(),'Candidate successfully added')]"));
+					.findElement(By.xpath("//div/span[contains(text(),'Candidate has been successfully added')]"));
 			if (candidateNAme.isDisplayed()) {
 				logger.info(candidateNAme.getText());
 			}
@@ -205,14 +235,14 @@ public class CandidateListPage extends WebBasePage {
 
 	public void clickOnSearchButton() {
 		waitForLoad(10);
-		click(By.xpath("//span[@id='searchDataButton']"), "Search Button", 25);
+		clickByJavascript(By.xpath("//a[@title='Search']"), "Search Button", 25);
 
 	}
 
 	public void verifyCandidateOnListingPage() {
 		waitForLoad(30);
 		try {
-			WebElement candidateNAme = driver.findElement(By.xpath("//tr/td/a[contains(text(),'" + firstName + "')]"));
+			WebElement candidateNAme = driver.findElement(By.xpath("//tr/td/span/a[contains(text(),'" + firstName + "')]"));
 			if (candidateNAme.isDisplayed()) {
 				logger.info("Candidate name displayed successfully");
 			}
@@ -224,8 +254,8 @@ public class CandidateListPage extends WebBasePage {
 	}
 
 	public void clickOncheckbox() {
-		waitForLoad(10);
-		click(By.xpath("//th/div[@class='custom-control custom-checkbox']"), "CheckBox", 25);
+		staticWait(1000);
+		click(By.xpath("(//div[@class='custom-control custom-checkbox custom-control-inline'])[2]"), "CheckBox", 25);
 
 	}
 
@@ -258,39 +288,20 @@ public class CandidateListPage extends WebBasePage {
 
 	public void verifyGridViewFunctionality() {
 		waitForLoad(30);
-		click(By.xpath("//a[@data-original-title='List View']"), "grid", 25);
-		try {
-			String gridView = driver.findElement(By.xpath("//a[@data-original-title='List View']"))
-					.getAttribute("title");
-			if (gridView.contains("Grid View")) {
-				logger.info("Grid View Button Working successfully");
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			logger.info("Grid View Button not Working");
-		}
+		selectValueWithText(By.xpath("//select[@id='ddlUserCurrentStatus']"), "Card View", "Card View", 25);
+		
 
 	}
 
 	public void verifyListViewFunctionality() {
 		waitForLoad(30);
-		click(By.xpath("//a[@data-original-title='List View']"), "grid", 25);
-		try {
-			String listView = driver.findElement(By.xpath("//a[@data-original-title='List View']"))
-					.getAttribute("title");
-			if (listView.contains("List View")) {
-				logger.info("List View Button Working successfully");
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			logger.info("List View Button not Working");
-		}
+		selectValueWithText(By.xpath("//select[@id='ddlUserCurrentStatus']"), "List View", "List View", 25);
 
 	}
 
 	public void clickOnManageView() {
 		waitForLoad(10);
-		clickByJavascript(By.xpath("//a[@data-original-title='Manage View']"), "Manage View", 25);
+		clickByJavascript(By.xpath("//span/i[@title='Manage View']"), "Manage View", 25);
 
 	}
 
@@ -310,13 +321,14 @@ public class CandidateListPage extends WebBasePage {
 
 	public void clickOnNext() {
 		// waitForLoad(10);
-		clickByJavascript(By.xpath("//a[contains(text(),'Next')]"), "Next Button", 25);
+		clickByJavascript(By.xpath("(//a[contains(text(),'Next')])[2]"), "Next Button", 25);
 
 	}
 
 	public void clickOnMoveAllRight() {
+		staticWait(2000);
 		// waitForLoad(10);
-		click(By.xpath("(//button[@data-original-title='Move All Right'])[last()]"), "Move All Right", 25);
+		click(By.xpath("(//button[@title='Move All Right'])[last()]"), "Move All Right", 25);
 
 	}
 
@@ -328,7 +340,7 @@ public class CandidateListPage extends WebBasePage {
 
 	public void selectFieldName() {
 		waitForLoad(30);
-		selectValueWithText(By.xpath("//select[contains(@name,'fieldName')]"), "First Name", "Field Name", 25);
+		selectValueWithText(By.xpath("//select[contains(@name,'field_name1')]"), "Name", "Field Name", 25);
 
 	}
 
@@ -341,46 +353,54 @@ public class CandidateListPage extends WebBasePage {
 	public void enterValue() {
 		waitForLoad(10);
 
-		enter(By.xpath("//div/input[contains(@id,'first_name')]"), firstName, "Value", 25);
+		enter(By.xpath("//span/input[contains(@id,'first_name')]"), firstName, "Value", 25);
 
 	}
 
 	public void clickOnDeleteManageView() {
 		waitForLoad(10);
-		clickByJavascript(By.xpath("(//a[@data-original-title='Delete'])[last()]"), "Delete Button", 25);
+		clickByJavascript(By.xpath("(//a[@title='Delete'])[last()]"), "Delete Button", 25);
 
 	}
 
 	public void clickOnForwardCandidateCV() {
 		waitForLoad(10);
-		click(By.xpath("//a/span[contains(text(),'Forward candidates CV')]"), "Forward candidates CV", 25);
+		click(By.xpath("//a/span[contains(text(),'Forward Candidates CV')]"), "Forward candidates CV", 25);
 
 	}
 
 	public void selectTemplate() {
-		waitForLoad(50);
-		click(By.xpath("//select[@name='Template']"), "Template Dropdown", 25);
+		staticWait(2000);
+		click(By.xpath("//select[@name='ChooseTemplate']"), "Template Dropdown", 25);
 		// selectValueWithIndex(By.xpath("//select[@name='Template']"), 2, "Template",
 		// 25);
-		click(By.xpath("//select[@name='Template']/option[2]"), "Template ", 25);
+		click(By.xpath("//select[@name='ChooseTemplate']/option[2]"), "Template ", 25);
 
 	}
 
-	public void selectPrefillFromTemplate() {
+	public void selectProfileFromTemplate() {
 		// waitForLoad(10);
-		click(By.xpath("//select[@name='PrefillTemplate']"), "Prefill from Template Dropdown", 25);
+		click(By.xpath("//select[@name='PrefillfromTemplate']"), "Profile from Template Dropdown", 25);
 		// selectValueWithIndex(By.xpath("//select[@name='PrefillTemplate']"), 2,
 		// "Prefill from Template", 25);
-		click(By.xpath("//select[@name='PrefillTemplate']/option[2]"), "Prefill from Template", 25);
+		click(By.xpath("//select[@name='PrefillfromTemplate']/option[2]"), "Prefill from Template", 25);
 
 	}
 
 	public void selectResumeTemplate() {
 		// waitForLoad(10);
-		click(By.xpath("//select[@name='TemplateResume']"), "Resume Template Dropdown", 25);
+		click(By.xpath("//select[@name='ResumeTemplate']"), "Resume Template Dropdown", 25);
 		// selectValueWithIndex(By.xpath("//select[@name='TemplateResume']"), 2, "Resume
 		// Template", 25);
-		click(By.xpath("//select[@name='TemplateResume']/option[2]"), "Resume Template", 25);
+		click(By.xpath("//select[@name='ResumeTemplate']/option[2]"), "Resume Template", 25);
+
+	}
+	public void selectIncludeTemplate() {
+		// waitForLoad(10);
+		click(By.xpath("//select[@name='IncludedTemplate']"), "Include Template Dropdown", 25);
+		// selectValueWithIndex(By.xpath("//select[@name='TemplateResume']"), 2, "Resume
+		// Template", 25);
+		click(By.xpath("//select[@name='IncludedTemplate']/option[2]"), "Include Template", 25);
 
 	}
 
@@ -393,7 +413,7 @@ public class CandidateListPage extends WebBasePage {
 
 	public void clickOnSend() {
 		staticWait(3000);
-		clickByJavascript(By.xpath("//a/span[contains(text(),'Send')]"), "Send Button", 25);
+		clickByJavascript(By.xpath("//a[contains(text(),'Save')]"), "Send Button", 25);
 
 	}
 
@@ -444,14 +464,14 @@ public class CandidateListPage extends WebBasePage {
 	}
 
 	public void clickOnActionButton() {
-		waitForLoad(10);
-		click(By.xpath("//span[@class='actions mobileaction']/i"), "Action Button", 25);
+		staticWait(3000);
+		click(By.xpath("//span[@class='actions mobileaction']"), "Action Button", 25);
 
 	}
 
 	public void clickOnEditButton() {
 		waitForLoad(10);
-		click(By.xpath("//a[@data-original-title='Edit']"), "Edit Button", 25);
+		click(By.xpath("//a[@title='Edit']"), "Edit Button", 25);
 
 	}
 
@@ -663,13 +683,13 @@ public class CandidateListPage extends WebBasePage {
 
 	public void clickOnViewButton() {
 		staticWait(1000);
-		click(By.xpath("//span/a[@data-original-title='View']"), "View", 25);
+		click(By.xpath("//a[@title='View']"), "View", 25);
 
 	}
 
 	public void clickOnEdit() {
 		staticWait(1000);
-		click(By.xpath("//a[@data-original-title='Edit']"), "Edit", 25);
+		click(By.xpath("//a[contains(text(),'Edit')]"), "Edit", 25);
 
 	}
 
@@ -689,20 +709,20 @@ public class CandidateListPage extends WebBasePage {
 	}
 
 	public void clickOnRequestDocument() {
-		staticWait(1000);
+		staticWait(2000);
 		click(By.xpath("//span/a[contains(text(),'Request Documents')]"), "'Request Documents", 25);
 
 	}
 
 	public void selectRequestTemplate() {
 		staticWait(1000);
-		selectValueWithIndex(By.xpath("//select[@id='SelectTemplate']"), 2, "'Request Template", 25);
+		selectValueWithIndex(By.xpath("//select[@name='SelectTemplate']"), 2, "'Request Template", 25);
 
 	}
 
 	public void clickOnSendEmail() {
 		staticWait(3000);
-		click(By.xpath("//a/span[contains(text(),'Send Email')]"), "Send Email", 25);
+		click(By.xpath("//button[contains(text(),'Send Email')]"), "Send Email", 25);
 
 	}
 
@@ -722,7 +742,7 @@ public class CandidateListPage extends WebBasePage {
 	}
 
 	public void clickOnHire() {
-		staticWait(1000);
+		staticWait(2000);
 		click(By.xpath("//span/a[contains(text(),'Hire')]"), "Hire", 25);
 
 	}
@@ -740,8 +760,8 @@ public class CandidateListPage extends WebBasePage {
 	}
 
 	public void selectOnHoldReason() {
-		staticWait(1000);
-		selectValueWithIndex(By.xpath("//select[@id='holdReason']"), 2, "Hold Reason", 25);
+		staticWait(3000);
+		selectValueWithIndex(By.xpath("//select[@name='RejectReason']"), 2, "Hold Reason", 25);
 
 	}
 
@@ -759,7 +779,7 @@ public class CandidateListPage extends WebBasePage {
 
 	public void enterComment() {
 		staticWait(1000);
-		enter(By.xpath("//div/textarea[@id='holdLeaveComment']"), prop.getProperty("comment"), "Hold", 25);
+		enter(By.xpath("//span/textarea[@class='form-control']"), prop.getProperty("comment"), "Comment", 25);
 
 	}
 
@@ -774,7 +794,7 @@ public class CandidateListPage extends WebBasePage {
 
 	public void clickOnUpdate() {
 		// staticWait(1000);
-		click(By.xpath("(//a/span[contains(text(),'Update')])[last()]"), "Update", 25);
+		click(By.xpath("//button[contains(text(),'Update')]"), "Update", 25);
 
 	}
 
@@ -795,13 +815,13 @@ public class CandidateListPage extends WebBasePage {
 
 	public void clickOnInterview() {
 		staticWait(3000);
-		click(By.xpath("//span[contains(text(),'Interview')]"), "Interview", 25);
+		click(By.xpath("//div/ul/li/a[contains(text(),'Interview')]"), "Interview", 25);
 
 	}
 
 	public void clickOnNote() {
 		staticWait(3000);
-		click(By.xpath("//span[contains(text(),'Notes')]"), "Note", 25);
+		click(By.xpath("//a[contains(text(),'Notes')]"), "Note", 25);
 
 	}
 
@@ -813,11 +833,11 @@ public class CandidateListPage extends WebBasePage {
 
 	public void enterNotesDescription() {
 		staticWait(1000);
-		switchToFrame();
+		//switchToFrame();
 		enter(By.xpath(
-				"//body[@class='cke_editable cke_editable_themed cke_contents_ltr cke_theme_Default cke_show_borders']"),
+				"//div[@class='ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline']"),
 				"Test", "Notes Detail", 25);
-		driver.switchTo().parentFrame();
+		//driver.switchTo().parentFrame();
 	}
 
 	public void clickOnSAve() {
@@ -830,7 +850,7 @@ public class CandidateListPage extends WebBasePage {
 		waitForLoad(30);
 		try {
 			WebElement notifeMessage = driver
-					.findElement(By.xpath("//div/span[contains(text()'note has been added successfully')]"));
+					.findElement(By.xpath("//div/span[contains(text(),'Note has been successfully added')]"));
 			if (notifeMessage.isDisplayed()) {
 				logger.info(notifeMessage.getText());
 			}
@@ -855,7 +875,7 @@ public class CandidateListPage extends WebBasePage {
 
 	public void clickOnEditNotesButton() {
 		staticWait(3000);
-		click(By.xpath("//a[contains(text(),'Edit')]"), "Edit Button", 25);
+		click(By.xpath("(//a[contains(text(),'Edit')])[2]"), "Edit Button", 25);
 
 	}
 
@@ -863,13 +883,13 @@ public class CandidateListPage extends WebBasePage {
 		waitForLoad(30);
 		try {
 			WebElement notifeMessage = driver
-					.findElement(By.xpath("//div/span[contains(text(),'Note Deleted Successfully')]"));
+					.findElement(By.xpath("//div/span[contains(text(),'Note has been successfully deleted')]"));
 			if (notifeMessage.isDisplayed()) {
 				logger.info(notifeMessage.getText());
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			logger.info("Note hasn't been added successfully");
+			logger.info("Note hasn't been deleted successfully");
 		}
 
 	}
@@ -891,12 +911,14 @@ public class CandidateListPage extends WebBasePage {
 
 	public void clickOnDocuments() {
 		staticWait(3000);
-		click(By.xpath("//span[contains(text(),'Documents')]"), "Documents", 25);
+		click(By.xpath("//a[contains(text(),'Documents')]"), "Documents", 25);
 
 	}
 	public void selectDocumentType() {
-		staticWait(1000);
-		selectValueWithIndex(By.xpath("//select[@id='ddldoctypes']"), 1, "Document Type", 25);
+		staticWait(3000);
+		click(By.xpath("//select[@name='DocumentType']"), "Documents type dropdown", 25);
+		click(By.xpath("//select[@name='DocumentType']/option[2]"), "Document Type", 25);
+		//selectValueWithIndex(By.xpath("//select[@name='DocumentType']"), 2, "Document Type", 25);
 
 	}
 	// upload file
@@ -917,7 +939,7 @@ public class CandidateListPage extends WebBasePage {
 			 * )) .click();
 			 */
 			driver.findElement(By.xpath(
-					"//span[@class='group-span-filestyle input-group-btn input-group-text bg-white']/label[@for='item_image']"))
+					"//div/span[contains(text(),'Drop or click here to upload files')]"))
 					.click();
 
 			// put path to your image in a clipboard
@@ -974,14 +996,15 @@ public class CandidateListPage extends WebBasePage {
 	}
 
 	public void selectJobForApplyMore() {
-		staticWait(1000);
-		selectValueWithIndex(By.xpath("//select[@name='Job']"), 1, "Job", 25);
+		staticWait(3000);
+		click(By.xpath("//select[@name='SelectJob']"), "Job DropDown", 25);
+		selectValueWithIndex(By.xpath("//select[@name='SelectJob']"), 2, "Job", 25);
 
 	}
 
 	public void clickOnSaveAndSkipEmail() {
 		staticWait(1000);
-		clickByJavascript(By.xpath("//a[@data-original-title='Save and Skip Email']"), "Save and Skip Email", 25);
+		clickByJavascript(By.xpath("//button[contains(text(),'Save and Skip Email')]"), "Save and Skip Email", 25);
 
 	}
 

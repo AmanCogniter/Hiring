@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -43,12 +44,29 @@ public class JobBoardSetupPage extends WebBasePage {
 	}
 
 	public void clickOnHiring() {
-		click(By.xpath("//li[@data-name='Hiring']//a//i//following::text()[1]//following::span"), "Hiring", 30);
-		staticWait(2000);
+
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			// Locating element by link text and store in variable "Element"
+			WebElement Element = driver.findElement(By.xpath("//li/a[contains(text(),'Expense')]"));
+
+			// Scrolling down the page till the element is found
+			js.executeScript("arguments[0].scrollIntoView();", Element);
+			staticWait(1000);
+			WebElement hiring = driver.findElement(By.xpath("//li/a[contains(text(),'Hiring')]"));
+			if (hiring.isDisplayed()) {
+				click(By.xpath("//li/a[contains(text(),'Hiring')]"), "Hiring", 30);
+				staticWait(2000);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			click(By.xpath("//li[@data-name='Hiring']/a//following::span"), "Hiring", 30);
+		}
 	}
 
 	public void clickOnJobBoardSetup() {
-		click(By.xpath("//div/ul/li/a[@data-original-title='Job Board Setup']"), "Job Board Setup", 30);
+		click(By.xpath("//a[contains(text(),'Job Board Setup')]"), "Job Board Setup", 30);
 		staticWait(3000);
 	}
 
@@ -74,9 +92,15 @@ public class JobBoardSetupPage extends WebBasePage {
 		clickByJavascript(By.xpath("//a[@data-original-title='Save']"), "Save Button", 30);
 
 	}
+	public void clickOnGeneralSaveButton() {
+		scrollDown();
+		staticWait(1000);
+		clickByJavascript(By.xpath("(//a[@data-original-title='Save'])[2]"), "Save Button", 30);
+
+	}
 
 	public void captureNotifyMessage() {
-		staticWait(1000);
+		staticWait(2000);
 
 		try {
 			WebElement notifymessage = driver.findElement(
@@ -94,7 +118,7 @@ public class JobBoardSetupPage extends WebBasePage {
 
 	public void clickOnGeneral() {
 		staticWait(2000);
-		click(By.xpath("(//div/ul/li/a[contains(text(),'General')])[2]"), "General", 30);
+		click(By.xpath("(//div/ul/li/a[contains(text(),'General')])[last()]"), "General", 30);
 
 	}
 
@@ -210,14 +234,15 @@ public class JobBoardSetupPage extends WebBasePage {
 		// staticWait(2000);
 		switchToFrame();
 		enter(By.xpath(
-				"//body[@class='cke_editable cke_editable_themed cke_contents_ltr cke_theme_Default cke_show_borders']"),
+				"//body[@class='cke_editable cke_editable_themed cke_contents_ltr cke_theme_Colored cke_show_borders']"),
 				"Description", "Description", 30);
 		driver.switchTo().defaultContent();
 	}
+
 	public void selectLanguage() {
 		// staticWait(2000);
-		selectValueWithText(By.xpath("//span[contains(text(),'Language')]/parent::h5/../../descendant::div[2]/select"), "English", "Language",
-				30);
+		selectValueWithText(By.xpath("//span[contains(text(),'Language')]/parent::h5/../../descendant::div[2]/select"),
+				"English", "Language", 30);
 
 	}
 
@@ -242,60 +267,66 @@ public class JobBoardSetupPage extends WebBasePage {
 		}
 
 	}
+
 	public void enterEmployeeFullName() {
 		// staticWait(2000);
 		enter(By.xpath("//div/input[@name='empolyee_name']"), "Enter Employee Full name", "Employee Full name", 30);
 
 	}
+
 	public void enterJobTitle() {
 		// staticWait(2000);
 		enter(By.xpath("//div/input[@name='job_title']"), "Enter Job Title", "Job Title", 30);
 
 	}
+
 	public void enterComment() {
 		// staticWait(2000);
 		enter(By.xpath("//div/input[@name='testimonial_comment']"), " Enter testimonial comment", "Comment", 30);
 
 	}
-	public void uploadFile() throws AWTException {
-		 staticWait(1000);
-			/*
-			 * WebElement UploadImg = driver.findElement(By.xpath("//a[@type='file']"));
-			 * UploadImg.sendKeys(
-			 * "C:\\Users\\aanand\\eclipse-workspace\\Com.Talygen.Hiring.Automation\\src\\main\\resources\\testfiles\\cogniter-logo.png"
-			 * );
-			 */
-		  
-		  // file path passed as parameter to StringSelection
-	      StringSelection s = new StringSelection("C:\\Users\\aanand\\eclipse-workspace\\Com.Talygen.Hiring.Automation\\src\\main\\resources\\testfiles\\cogniter-logo.png");
-	      // Clipboard copy
-	      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
-	      //identify element and click
-	      staticWait(1000);
-	      driver.findElement(By.xpath("//a[@type='file']")).click();
-	      // Robot object creation
-	      staticWait(2000);
-	      Robot r = new Robot();
-	      //pressing enter
-	      r.keyPress(KeyEvent.VK_ENTER);
-	      //releasing enter
-	      r.keyRelease(KeyEvent.VK_ENTER);
-	      //pressing ctrl+v
-	      r.keyPress(KeyEvent.VK_CONTROL);
-	      r.keyPress(KeyEvent.VK_V);
-	      //releasing ctrl+v
-	      r.keyRelease(KeyEvent.VK_CONTROL);
-	      r.keyRelease(KeyEvent.VK_V);
-	      //pressing enter
-	      r.keyPress(KeyEvent.VK_ENTER);
-	      //releasing enter
-	      r.keyRelease(KeyEvent.VK_ENTER);
 
-		  logger.info("File Uploaded successfully");
+	public void uploadFile() throws AWTException {
+		staticWait(1000);
+		/*
+		 * WebElement UploadImg = driver.findElement(By.xpath("//a[@type='file']"));
+		 * UploadImg.sendKeys(
+		 * "C:\\Users\\aanand\\eclipse-workspace\\Com.Talygen.Hiring.Automation\\src\\main\\resources\\testfiles\\cogniter-logo.png"
+		 * );
+		 */
+
+		// file path passed as parameter to StringSelection
+		StringSelection s = new StringSelection(
+				"C:\\Users\\aanand\\eclipse-workspace\\Com.Talygen.Hiring.Automation\\src\\main\\resources\\testfiles\\cogniter-logo.png");
+		// Clipboard copy
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
+		// identify element and click
+		staticWait(1000);
+		driver.findElement(By.xpath("//a[@type='file']")).click();
+		// Robot object creation
+		staticWait(2000);
+		Robot r = new Robot();
+		// pressing enter
+		r.keyPress(KeyEvent.VK_ENTER);
+		// releasing enter
+		r.keyRelease(KeyEvent.VK_ENTER);
+		// pressing ctrl+v
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_V);
+		// releasing ctrl+v
+		r.keyRelease(KeyEvent.VK_CONTROL);
+		r.keyRelease(KeyEvent.VK_V);
+		// pressing enter
+		r.keyPress(KeyEvent.VK_ENTER);
+		// releasing enter
+		r.keyRelease(KeyEvent.VK_ENTER);
+
+		logger.info("File Uploaded successfully");
 
 	}
+
 	public void clickOnAddTestimonials() {
-		 staticWait(2000);
+		staticWait(2000);
 		click(By.xpath("//a[contains(text(),'Add a Testimonials')]"), "Add a Testimonials ", 30);
 
 	}

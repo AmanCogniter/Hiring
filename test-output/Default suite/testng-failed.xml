@@ -3,17 +3,23 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.JobBoardSetupTest">
+      <class name="testCases.JobListTest">
         <methods>
-          <include name="validateAppearancePage"/>
-          <include name="validateLayoutPageWithDeatilRadioButtonFunctionalitty"/>
-          <include name="closeBrowser"/>
+          <include name="ValidateAddNewCandidateFunctionalityOfJob"/>
           <include name="beforeMethod"/>
           <include name="close"/>
           <include name="reportWrapUp"/>
+          <include name="ValidateAddNewCandidateFunctionalityOfView"/>
           <include name="setUp"/>
+          <include name="ValidateCloneFunctionalityOfJob"/>
+          <include name="ValidateDeleteFunctionalityOfJob"/>
+          <include name="ValidateEditFunctionalityOfView"/>
+          <include name="closeBrowser"/>
+          <include name="addJobList"/>
+          <include name="ValidateUpDateFunctionalityOfJob"/>
+          <include name="ValidateJobOnListingPage"/>
         </methods>
-      </class> <!-- testCases.JobBoardSetupTest -->
+      </class> <!-- testCases.JobListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

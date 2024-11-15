@@ -20,6 +20,7 @@ public class JobRequisitionTest extends WebTestBase{
 		jobRequisitionAction.goToHiringTab();
 		jobRequisitionAction.validationCheck();
 	}
+	
 	@Test(priority=2)
 	public void addJobRequisition()
 	{
@@ -29,6 +30,7 @@ public class JobRequisitionTest extends WebTestBase{
 		jobRequisitionAction.goToHiringTab();
 		jobRequisitionAction.addjobRequisition();
 	}
+	
 	@Test(priority=3,dependsOnMethods = {"addJobRequisition"})
 	public void validateGroupNAmeOnListingPAge()
 	{
@@ -48,6 +50,7 @@ public class JobRequisitionTest extends WebTestBase{
 		jobRequisitionAction.goToHiringTab();
 		jobRequisitionAction.verifyViewButtonFunctionality();
 	}
+	
 	@Test(priority=5,dependsOnMethods = {"addJobRequisition"})
 	public void validateEditButtonFunctionality()
 	{
@@ -58,6 +61,7 @@ public class JobRequisitionTest extends WebTestBase{
 		jobRequisitionAction.goToHiringTab();
 		jobRequisitionAction.verifyEditButtonFunctionality();
 	}
+	
 	@Test(priority=6,dependsOnMethods = {"addJobRequisition"})
 	public void validateDeleteButtonFunctionality()
 	{
@@ -68,6 +72,7 @@ public class JobRequisitionTest extends WebTestBase{
 		jobRequisitionAction.goToHiringTab();
 		jobRequisitionAction.verifyDeleteButtonFunctionality();
 	}
+	
 	@Test(priority=7)
 	public void addJobRequisitionForRejectFunctionality()
 	{
@@ -77,6 +82,7 @@ public class JobRequisitionTest extends WebTestBase{
 		jobRequisitionAction.goToHiringTab();
 		jobRequisitionAction.addjobRequisitionForRejectFunctionality();
 	}
+	
 	@Test(priority=8)
 	public void validateRejectButtonFunctionality()
 	{
@@ -88,7 +94,8 @@ public class JobRequisitionTest extends WebTestBase{
 		jobRequisitionAction.verifyJobRequisitionOnListingPageForRejectFunctionality();
 		jobRequisitionAction.verifyRejectButtonFunctionality();
 	}
-	@Test(priority=9,dependsOnMethods = {"addJobRequisition"})
+	
+	@Test(priority=9)
 	public void validateDeleteButtonFunctionalityOfRejectedRequisition()
 	{
 		test=getTest(Screenname + ":Validate Delete Button Functionality Of Rejected Requisition");

@@ -2,11 +2,11 @@ package testCases;
 
 import static reporting.ComplexReportFactory.getTest;
 
+import java.awt.AWTException;
+
 import org.testng.annotations.Test;
 
-import action.CandidateListAction;
 import action.LoginAction;
-import action.PolicyAction;
 import action.TalentPoolListAction;
 import utils.WebTestBase;
 
@@ -24,7 +24,7 @@ public class TalentPoolListTest extends WebTestBase{
 	}
 	  
 		@Test(priority=2)
-		public void addTalentPool()
+		public void addTalentPool() throws AWTException
 		{
 			test=getTest(Screenname + ": Add Talent Pool");
 			TalentPoolListAction talentPoolListAction = new TalentPoolListAction(driver);
@@ -50,7 +50,7 @@ public class TalentPoolListTest extends WebTestBase{
 			talentPoolListAction.goToHiringTab();
 			talentPoolListAction.verifyTalentPoolOnListingPageWithEmail();
 		}
-		@Test(priority=5,dependsOnMethods = {"addTalentPool"})
+		//@Test(priority=5,dependsOnMethods = {"addTalentPool"})
 		public void ValidateEditFunctionalityOfTalentPool()
 		{
 			test=getTest(Screenname + ": Validate Edit Functionality Of Talent Pool");

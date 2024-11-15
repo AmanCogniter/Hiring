@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -43,30 +44,64 @@ public class GroupListPage extends WebBasePage {
 	}
 
 	public void clickFullMenuDropDown() {
-		staticWait(5000);
+		staticWait(25000);
 		click(By.xpath("//div/ul/li/a/span[contains(text(),'Full Menu')]"), "Full Menu", 30);
+		
 		staticWait(2000);
 	}
 
-	public void clickOnHiring() {
-		click(By.xpath("//li[@data-name='Hiring']//a//i//following::text()[1]//following::span"), "Hiring", 30);
-		staticWait(2000);
+public void clickOnHiring() {
+		
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	        
+
+	        //Locating element by link text and store in variable "Element"        		
+	        WebElement Element = driver.findElement(By.xpath("//li/a[contains(text(),'Expense')]"));
+
+	        // Scrolling down the page till the element is found		
+	        js.executeScript("arguments[0].scrollIntoView();", Element);
+	        staticWait(1000);
+			WebElement hiring = driver.findElement(By.xpath("//li/a[contains(text(),'Hiring')]"));
+			if (hiring.isDisplayed()) {
+				click(By.xpath("//li/a[contains(text(),'Hiring')]"), "Hiring", 30);
+				staticWait(2000);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			click(By.xpath("//li[@data-name='Hiring']/a//following::span"), "Hiring", 30);
+		}
 	}
 
 	public void clickOnGroupList() {
-		click(By.xpath("(//div/ul/li/a[contains(text(),'Group List')])[2]"), "Group List", 30);
+		click(By.xpath("(//li/a[contains(text(),'Group List')])[2]"), "Group List", 30);
 		staticWait(3000);
 	}
 
 	public void clickOnAddGroupList() {
-		clickByJavascript(By.xpath("//a[@data-original-title='Add Group']"), "Add Group", 20);
+		clickByJavascript(By.xpath("//a[@title='Add Group']"), "Add Group", 20);
 		staticWait(2000);
+	}
+	public void clickOnUserGuide() {
+		click(By.xpath("//a[contains(text(),'User Guide')]"), "User Guide", 30);
+		try {
+			WebElement group = driver.findElement(By.xpath("//b[contains(text(),'Group name')]"));
+			if (group.isDisplayed()) {
+				logger.info("User Guide Opened successfully");
+				click(By.xpath("//a[contains(text(),'User Guide')]"), "User Guide Colsed", 30);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			logger.info("User Guide not Opened successfully");
+		}
+		
 	}
 
 	public void save() {
 		
 		staticWait(1000);
-		WebElement savebutton = driver.findElement(By.xpath("//div/a[contains(text(),'Save')]"));
+		WebElement savebutton = driver.findElement(By.xpath("//div/button[contains(text(),'Save')]"));
 		Actions action = new Actions(driver);
 		action.moveToElement(savebutton).click().perform();
 		// click(By.xpath("//div/a[contains(text(),'Save')]"), "Save Button", 20);
@@ -77,7 +112,7 @@ public class GroupListPage extends WebBasePage {
 		try {
 			staticWait(2000);
 			WebElement notifymessage = driver.findElement(
-					By.xpath("//div/span[contains(text(),'Group successfully added')]"));
+					By.xpath("//div/span[contains(text(),'Group has been successfully added')]"));
 			if (notifymessage.isDisplayed()) {
 				logger.info(notifymessage.getText());
 			}
@@ -136,19 +171,19 @@ public class GroupListPage extends WebBasePage {
 		staticWait(3000);
 		groupName = prop.getProperty("groupname") + datevalue;
 		System.out.println(groupName);
-		enter(By.xpath("//div/input[@id='GroupName']"), groupName, "Group Name", 25);
+		enter(By.xpath("//span/input[@id='GroupName']"), groupName, "Group Name", 25);
 
 	}
 	public void selectRecruiters() {
 		staticWait(3000);
-		click(By.xpath("(//div/input[@type='search'])[2]"), "Recruiters DropDown", 20);
-		click(By.xpath("(//ul/li/a/div)[2]"), "Recruiters", 20);
+		click(By.xpath("//div/span[contains(text(),'Select Recruiters')]"), "Recruiters DropDown", 20);
+		click(By.xpath("(//div/ul/li/span/span)[2]"), "Recruiters", 20);
 
 	}
 	public void enterGroupNameIntoSearchField() {
-		staticWait(3000);
+		staticWait(5000);
 		
-		enter(By.xpath("//div/input[@id='GroupNameSearch']"), groupName, "Group Name", 25);
+		enter(By.xpath("//div/input[@placeholder='Search ']"), groupName, "Group Name", 25);
 
 	}
 	public void clickOnSearchButton() {
@@ -161,7 +196,7 @@ public class GroupListPage extends WebBasePage {
 		try {
 			staticWait(3000);
 			WebElement groupNAme = driver.findElement(
-					By.xpath("//table[@id='tblRelatedInfoListing']/tbody/tr/td[contains(text(),'"+groupName+"')]"));
+					By.xpath("//table[contains(@id,'tablelistingdata')]/tbody/tr/td/span/span[contains(text(),'"+groupName+"')]"));
 			if (groupNAme.isDisplayed()) {
 				logger.info("Group name is Displayed on listing page");
 			}
@@ -173,19 +208,19 @@ public class GroupListPage extends WebBasePage {
 	public void clickOnCheckBox() {
 		staticWait(1000);
 		
-		click(By.xpath("//div[@class='custom-control custom-checkbox']"), "Check BoX", 20);
+		click(By.xpath("(//div[@class='custom-control custom-checkbox custom-control-inline'])[2]"), "Check BoX", 20);
 
 	}
 	public void clickOnEdit() {
 		staticWait(1000);
 		
-		click(By.xpath("//a/i[@class='fa fa-pencil text-success action-icon']"), "Edit", 20);
+		click(By.xpath("//a[@typetitle='Edit']"), "Edit", 20);
 
 	}
 	public void clickOnUpdate() {
 		staticWait(1000);
 		
-		clickByJavascript(By.xpath("//a[@title='Update']"), "Update Button", 20);
+		clickByJavascript(By.xpath("//button[@type='submit']"), "Update Button", 20);
 
 	}
 	public void captureUpdateNotifyMessage() {
@@ -217,7 +252,7 @@ public class GroupListPage extends WebBasePage {
 		try {
 			staticWait(2000);
 			WebElement notifymessage = driver.findElement(
-					By.xpath("//div/span[contains(text(),'Group has been successfully updated')]"));
+					By.xpath("//div/span[contains(text(),'Group has been successfully deleted')]"));
 			if (notifymessage.isDisplayed()) {
 				logger.info(notifymessage.getText());
 			}

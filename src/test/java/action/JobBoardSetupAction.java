@@ -33,7 +33,7 @@ public class JobBoardSetupAction {
 		jobBoardSetupPage.clickOnSimpleRadioButton();
 		jobBoardSetupPage.clickOnGeneral();
 		jobBoardSetupPage.verifyGeneralPage();
-		jobBoardSetupPage.clickOnSaveButton();
+		jobBoardSetupPage.clickOnGeneralSaveButton();
 		jobBoardSetupPage.captureNotifyMessage();
 
 	}

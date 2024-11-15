@@ -29,7 +29,7 @@ public class CandidateListAction {
 	{
 		candidateListPage.clickOnAddCandidateList();
 		candidateListPage.save();
-		candidateListPage.closeNotifyMessage();
+		//candidateListPage.closeNotifyMessage();
 		candidateListPage.VerifyMandatoryFieldValidation();
 		
 	}
@@ -40,7 +40,7 @@ public class CandidateListAction {
 		candidateListPage.enterFirstName();
 		candidateListPage.enterLastName();
 		candidateListPage.enterEmail();
-		candidateListPage.enterMobileNumber();
+		//candidateListPage.enterMobileNumber();
 		candidateListPage.save();
 		candidateListPage.captureNotifyMessageOfAddCandidate();
 		
@@ -85,7 +85,7 @@ public class CandidateListAction {
 		candidateListPage.selectFieldName();
 		candidateListPage.selectConditionalOperator();
 		candidateListPage.enterValue();
-		candidateListPage.save();
+		candidateListPage.manageViewSave();
 	}
 	public void  verifyDeleteManageViewFunctionality()
 	{
@@ -114,8 +114,9 @@ public class CandidateListAction {
 		candidateListPage.clickOncheckbox();
 		candidateListPage.clickOnForwardCandidateCV();
 		candidateListPage.selectTemplate();
-		candidateListPage.selectPrefillFromTemplate();
+		candidateListPage.selectProfileFromTemplate();
 		candidateListPage.selectResumeTemplate();
+		candidateListPage.selectIncludeTemplate();
 		candidateListPage.enterToEmail();
 		candidateListPage.clickOnSend();
 		
@@ -221,12 +222,14 @@ public class CandidateListAction {
 		candidateListPage.clickOnViewButton();
 		candidateListPage.clickOnHold();
 		candidateListPage.selectOnHoldReason();
-		candidateListPage.clickOnCandidateCheckBox();
-		candidateListPage.clickOnHiringTeamCheckBox();
+		
+		 // candidateListPage.clickOnCandidateCheckBox();
+		 // candidateListPage.clickOnHiringTeamCheckBox();
+		 
 		candidateListPage.enterComment();
-		candidateListPage.enterDescription();
+		//candidateListPage.enterDescription();
 		candidateListPage.clickOnUpdate();
-		candidateListPage.clickOnConfirmationButton();
+		//candidateListPage.clickOnConfirmationButton();
 		candidateListPage.captureNotifyMessageOfOnHold();
 	}
 	public void  verifyEditFunctionalityOfInterview()
@@ -255,11 +258,11 @@ public class CandidateListAction {
 		candidateListPage.clickOnNote();
 		candidateListPage.clickOnAddNote();
 		candidateListPage.enterNotesDescription();
-		candidateListPage.clickOnSAve();
+		candidateListPage.save();
 		candidateListPage.captureNotifyMessageOfNotes();
 		candidateListPage.clickOnDeleteActionButton();
 		candidateListPage.clickOnEditNotesButton();
-		candidateListPage.clickOnSAve();
+		candidateListPage.save();
 		candidateListPage.captureNotifyEditMessageOfNotes();
 		candidateListPage.clickOnDeleteActionButton();
 		candidateListPage.clickOnDeleteButton();

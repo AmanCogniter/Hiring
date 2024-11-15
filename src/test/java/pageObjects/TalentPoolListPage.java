@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -48,23 +49,65 @@ public class TalentPoolListPage extends WebBasePage{
 	}
 
 	public void clickFullMenuDropDown() {
-		staticWait(5000);
+		staticWait(27000);
+		
 		click(By.xpath("//div/ul/li/a/span[contains(text(),'Full Menu')]"), "Full Menu", 30);
 		staticWait(2000);
 	}
 
 	public void clickOnHiring() {
-		click(By.xpath("//li[@data-name='Hiring']//a//i//following::text()[1]//following::span"), "Hiring", 30);
-		staticWait(2000);
+
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			// Locating element by link text and store in variable "Element"
+			WebElement Element = driver.findElement(By.xpath("//li/a[contains(text(),'Expense')]"));
+
+			// Scrolling down the page till the element is found
+			js.executeScript("arguments[0].scrollIntoView();", Element);
+			staticWait(1000);
+			WebElement hiring = driver.findElement(By.xpath("//li/a[contains(text(),'Hiring')]"));
+			if (hiring.isDisplayed()) {
+				click(By.xpath("//li/a[contains(text(),'Hiring')]"), "Hiring", 30);
+				staticWait(2000);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			click(By.xpath("//li[@data-name='Hiring']/a//following::span"), "Hiring", 30);
+		}
 	}
 
+
 	public void clickOnTalentPoolList() {
-		click(By.xpath("(//div/ul/li/a[@data-original-title='Talent Pool List'])[last()]"), "Talent Pool List", 30);
 		staticWait(3000);
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			// Locating element by link text and store in variable "Element"
+			WebElement Element = driver.findElement(By.xpath("//a[contains(text(),'Offboard Employee List')]"));
+
+			// Scrolling down the page till the element is found
+			js.executeScript("arguments[0].scrollIntoView();", Element);
+			staticWait(1000);
+			WebElement hiring = driver.findElement(By.xpath("//li/a[contains(text(),'Hiring')]"));
+			if (hiring.isDisplayed()) {
+				click(By.xpath("//a[contains(text(),'Talent Pool List')]"), "Talent Pool List", 30);
+				
+				staticWait(2000);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			click(By.xpath("//a[contains(text(),'Talent Pool List')]"), "Talent Pool List", 30);
+		}
+		staticWait(5000);
+		driver.navigate().refresh();
+		staticWait(15000);
 	}
 
 	public void clickOnAddTalentPoolList() {
-		clickByJavascript(By.xpath("//a[@data-original-title='Add to Talent Pool']"), "Add Talent Pool List", 20);
+		staticWait(2000);
+		
+		clickByJavascript(By.xpath("//a[@id='AddTalentPool']"), "Add Talent Pool List", 20);
 		staticWait(2000);
 	}
 
@@ -72,7 +115,7 @@ public class TalentPoolListPage extends WebBasePage{
 
 		staticWait(3000);
 		scrollDown();
-		WebElement savebutton = driver.findElement(By.xpath("//div/a[contains(text(),'Save')]"));
+		WebElement savebutton = driver.findElement(By.xpath("//div/button[contains(text(),'Save')]"));
 		Actions action = new Actions(driver);
 		action.moveToElement(savebutton).click().perform();
 		// click(By.xpath("//div/a[contains(text(),'Save')]"), "Save Button", 20);
@@ -101,8 +144,8 @@ public class TalentPoolListPage extends WebBasePage{
 		String expectedText;
 
 		List<WebElement> errorMessageLocator = findMultipleElement(
-				By.xpath("//div[contains(@class,'invalid-feedback')]"), 45);
-		String[] expectedValue = { "First Name", "Last Name","Email","Mobile Number" };
+				By.xpath("//span[contains(@class,'invalid-feedback')]"), 45);
+		String[] expectedValue = { "Name", "Last Name","Email"};
 		for (Object expected : expectedValue) {
 			/*
 			 * WebElement AsteriskField = findElementVisibility(By.xpath("//label[text()='"+
@@ -141,7 +184,7 @@ public class TalentPoolListPage extends WebBasePage{
 		}
 	}
 	public void uploadDocument() {
-		staticWait(3000);
+		staticWait(5000);
 //		findElementVisibility(
 //				By.xpath("//span[@class='group-span-filestyle input-group-btn input-group-text bg-white']"), 20);
 //		uploadDoc(By.xpath("//span[@class='group-span-filestyle input-group-btn input-group-text bg-white']"),
@@ -157,7 +200,7 @@ public class TalentPoolListPage extends WebBasePage{
 		 * )) .click();
 		 */
 		driver.findElement(By.xpath(
-				"//span[@class='group-span-filestyle input-group-btn input-group-text bg-white']/label[@for='flFile']"))
+				"//div/span[contains(text(),'Click Here to Upload Files')]"))
 				.click();
 
 		// put path to your image in a clipboard
@@ -187,40 +230,65 @@ public class TalentPoolListPage extends WebBasePage{
 	}
 
 	public void enterFirstName() {
-		staticWait(2000);
+		staticWait(1000);
 		firstName = prop.getProperty("talentpoolfirstname");
 		System.out.println(firstName);
-		enter(By.xpath("//div/input[@id='first_name']"), firstName, "First Name", 25);
+		
+		enter(By.xpath("//span/input[@id='first_name']"), firstName, "First Name", 25);
+
+	}
+	public void reEnterFirstName() throws AWTException {
+		staticWait(1000);
+		firstName = prop.getProperty("talentpoolfirstname");
+		//System.out.println(firstName);
+		driver.findElement(By.xpath(
+				"//span/input[@id='first_name']"))
+				.click();
+
+		
+		
+		
+		Robot	robot = new Robot();
+
+			//robot.delay(250);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_A);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyRelease(KeyEvent.VK_A);
+			robot.keyPress(KeyEvent.VK_BACK_SPACE);
+			robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+		
+		enter(By.xpath("//span/input[@id='first_name']"), firstName, "First Name", 25);
 
 	}
 
 	public void enterLastName() {
 
 		lastName = prop.getProperty("lastname") + datevalue;
-		enter(By.xpath("//div/input[@id='last_name']"), lastName, "Last Name", 25);
+		enter(By.xpath("//span/input[@id='LAST_NAME']"), lastName, "Last Name", 25);
 
 	}
 
 	public void enterEmail() {
 		staticWait(3000);
 		email = prop.getProperty("email") + datevalue + "@gmail.com";
-		enter(By.xpath("//div/input[@id='email_id']"), email, "Email", 25);
+		enter(By.xpath("//span/input[@id='email_id']"), email, "Email", 25);
 
 	}
 
 	public void enterMobileNumber() {
-
+		staticWait(5000);
 		mobileNumber = prop.getProperty("mobilenumber");
-		click(By.xpath("//div/input[@name='mobile']"), "Mobile Number Textfield", 25);
-		enter(By.xpath("//div/input[@name='mobile']"), mobileNumber, "Mobile Number", 25);
-		click(By.xpath("//div/input[@name='phone_number']"), "Phone Textfield", 25);
+		click(By.xpath("//div/input[@name='telephone']"), "Mobile Number Textfield", 25);
+		enter(By.xpath("//div/input[@name='telephone']"), mobileNumber, "Mobile Number", 25);
+		click(By.xpath("//label[contains(text(),'Mobile Number')]"), "Phone Textfield", 25);
 
 	}
 	public void captureNotifyMessage() {
 		try {
 			staticWait(5000);
 			WebElement notifymessage = driver
-					.findElement(By.xpath("//div/span[contains(text(),'Talent Pool successfully added')]"));
+					.findElement(By.xpath("//div/span[contains(text(),'Talent Pool has been successfully added')]"));
 			if (notifymessage.isDisplayed()) {
 				logger.info(notifymessage.getText());
 				
@@ -239,20 +307,20 @@ public class TalentPoolListPage extends WebBasePage{
 	public void enterNameIntoSearchField() {
 
 		
-		enter(By.xpath("//div/input[@placeholder='Talent Pool Name  Search']"), firstName+" "+lastName, "Talent Pool Name", 25);
+		enter(By.xpath("//div/input[@placeholder='Talent Pool Name ']"), firstName, "Talent Pool Name", 25);
 
 	}
 	public void clickOnSearchButton() {
 
 		staticWait(3000);
-		clickByJavascript(By.xpath("//span/a[contains(@data-original-title,'Search')]"), "Search Button", 25);
+		clickByJavascript(By.xpath("//span/a[contains(@title,'Search')]"), "Search Button", 25);
 
 	}
 	public void verifyTalentPool() {
 		try {
 			staticWait(5000);
 			WebElement notifymessage = driver
-					.findElement(By.xpath("//td/span[contains(text(),'"+lastName+"')]"));
+					.findElement(By.xpath("//span/a[contains(text(),'"+firstName+"')]"));
 			if (notifymessage.isDisplayed()) {
 				logger.info("Talent Pool displayed on listing page");
 				
@@ -271,13 +339,13 @@ public class TalentPoolListPage extends WebBasePage{
 	public void enterEMailIntoSearchField() {
 
 		
-		enter(By.xpath("//div/input[@placeholder='Email Search']"), email, "Email Name", 25);
+		enter(By.xpath("//div/input[@placeholder='Email ']"), email, "Email Name", 25);
 
 	}
 	public void clickOnCheckBox() {
-		// staticWait(3000);
+		 staticWait(1000);
 
-		click(By.xpath("//div[@class='custom-control custom-checkbox']"), "CheckBox", 25);
+		click(By.xpath("(//div[contains(@class,'custom-control custom-checkbox')])[last()]"), "CheckBox", 25);
 
 	}
 	public void clickOndelete() {
@@ -307,13 +375,13 @@ public class TalentPoolListPage extends WebBasePage{
 	}
 	public void clickOnActionButton() {
 		waitForLoad(10);
-		click(By.xpath("//span[@class='actions mobileaction']/i"), "Action Button", 25);
+		click(By.xpath("//span[@class='actions mobileaction']/em"), "Action Button", 25);
 
 	}
 
 	public void clickOnEditButton() {
 		waitForLoad(10);
-		click(By.xpath("//a[@data-original-title='Edit']"), "Edit Button", 25);
+		click(By.xpath("//a[@title='Edit']"), "Edit Button", 25);
 
 	}
 
@@ -333,9 +401,9 @@ public class TalentPoolListPage extends WebBasePage{
 	}
 	public void clickOnViewButton() {
 		waitForLoad(10);
-		click(By.xpath("//a[@data-original-title='View']"), "View Button", 25);
+		click(By.xpath("//a[@title='View']"), "View Button", 25);
 		try {
-			WebElement profile = driver.findElement(By.xpath("//div/span[contains(text(),'Talent Pool List Profile')]"));
+			WebElement profile = driver.findElement(By.xpath("//div/span[contains(text(),'Profile')]"));
 			if (profile.isDisplayed()) {
 				logger.info("View page opened successfully");
 			}
@@ -347,30 +415,30 @@ public class TalentPoolListPage extends WebBasePage{
 	}
 	public void clickOnBackToList() {
 		waitForLoad(10);
-		click(By.xpath("//a[@data-original-title='Back to list']"), "Back To List", 25);
+		click(By.xpath("//a[@title='Back to List']"), "Back To List", 25);
 
 	}
 	public void clickOnAddAsCandidate() {
 		waitForLoad(10);
-		click(By.xpath("//a[@data-original-title='Add As Candidate']"), "Add As Candidate", 25);
+		click(By.xpath("//a[@title='Add As Candidate']"), "Add As Candidate", 25);
 
 	}
 	public void selectJob() {
-		waitForLoad(10);
-		selectValueWithIndex(By.xpath("//select[@name='Job']"), 2, "Job", 25);
+		staticWait(3000);
+		selectValueWithIndex(By.xpath("//select[@name='SelectJob']"), 3, "Job", 25);
 
 	}
 	public void enterDescription() {
 		//waitForLoad(10);
-		switchToFrame();
-		enter(By.xpath("//body[@class='cke_editable cke_editable_themed cke_contents_ltr cke_theme_Default cke_show_borders']"), "Test", "Description", 25);
-driver.switchTo().parentFrame();
+		//switchToFrame();
+		enter(By.xpath("//div[@class='ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline']"), "Test", "Description", 25);
+//driver.switchTo().parentFrame();
 	}
 	public void saveButton() {
 
 		staticWait(3000);
 		scrollDown();
-		WebElement savebutton = driver.findElement(By.xpath("(//span[contains(text(),'Save')])[2]"));
+		WebElement savebutton = driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
 		Actions action = new Actions(driver);
 		action.moveToElement(savebutton).click().perform();
 		// click(By.xpath("//div/a[contains(text(),'Save')]"), "Save Button", 20);
@@ -378,7 +446,7 @@ driver.switchTo().parentFrame();
 	}
 	public void clickOnManageView() {
 		waitForLoad(10);
-		clickByJavascript(By.xpath("//a[@data-original-title='Manage View']"), "Manage View", 25);
+		clickByJavascript(By.xpath("//i[@title='Manage View']"), "Manage View", 25);
 
 	}
 
@@ -404,7 +472,7 @@ driver.switchTo().parentFrame();
 
 	public void clickOnMoveAllRight() {
 		// waitForLoad(10);
-		click(By.xpath("(//button[@data-original-title='Move All Right'])[last()]"), "Move All Right", 25);
+		click(By.xpath("(//button[@title='Move All Right'])[last()]"), "Move All Right", 25);
 
 	}
 
@@ -416,7 +484,7 @@ driver.switchTo().parentFrame();
 
 	public void selectFieldName() {
 		waitForLoad(30);
-		selectValueWithText(By.xpath("//select[contains(@name,'fieldName')]"), "First Name", "Field Name", 25);
+		selectValueWithText(By.xpath("//select[contains(@name,'field_name')]"), "First Name", "Field Name", 25);
 
 	}
 
@@ -429,20 +497,20 @@ driver.switchTo().parentFrame();
 	public void enterValue() {
 		waitForLoad(10);
 
-		enter(By.xpath("//div/input[contains(@placeholder,'Enter')]"), firstName, "Value", 25);
+		enter(By.xpath("//span/input[contains(@type,'text')]"), firstName, "Value", 25);
 
 	}
 
 	public void clickOnDeleteManageView() {
 		waitForLoad(10);
-		clickByJavascript(By.xpath("(//a[@data-original-title='Delete'])[last()]"), "Delete Button", 25);
+		clickByJavascript(By.xpath("(//a[@title='Delete'])[last()]"), "Delete Button", 25);
 
 	}
 	public void saveManageView() {
 
 		staticWait(3000);
 		//scrollDown();
-		WebElement savebutton = driver.findElement(By.xpath("//div/a[@data-original-title='Save']"));
+		WebElement savebutton = driver.findElement(By.xpath("//div/a[@title='Save']"));
 		Actions action = new Actions(driver);
 		action.moveToElement(savebutton).click().perform();
 		// click(By.xpath("//div/a[contains(text(),'Save')]"), "Save Button", 20);

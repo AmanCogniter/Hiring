@@ -32,6 +32,7 @@ public class PolicyAction {
 	public void addPolicy() {
 		policyPage.clickOnAddPolicy();
 		policyPage.enterPolicyName();
+		policyPage.clickOnDatePicker();
 		policyPage.enterDescription();
 		policyPage.selectdepartment();
 		policyPage.enterDurationOfProbationPeriod();

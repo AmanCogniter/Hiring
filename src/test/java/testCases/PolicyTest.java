@@ -4,7 +4,6 @@ import static reporting.ComplexReportFactory.getTest;
 
 import org.testng.annotations.Test;
 
-import action.JobRequisitionAction;
 import action.LoginAction;
 import action.PolicyAction;
 import utils.WebTestBase;
